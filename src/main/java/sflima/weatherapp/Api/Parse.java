@@ -9,9 +9,10 @@ import sflima.weatherapp.model.AirPort;
 import sflima.weatherapp.model.AirStation;
 
 import java.util.List;
+import java.util.Set;
 
 public class Parse {
-    public void parseAirportData(String URL) throws JsonProcessingException {
+    public AirPort parseAirportData(String URL) /*throws JsonProcessingException*/ {
         try {
             Request request = Request.getRequest();
             JSONObject jsonObject = new JSONObject(request.sendGet(URL,"5b2a69d934bd4103968a69a4ee"));
@@ -29,27 +30,28 @@ public class Parse {
             airport.setDewpoint(data2.getJSONObject("dewpoint").getInt("celsius"));
             airport.setBarometer(data2.getJSONObject("barometer").getInt("hpa"));
             System.out.println(airport);
+            return airport;
         }
         catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
+
     }
 
-    public void parsePowietrzeAll(){
+    public List<AirStation> parsePowietrzeAll(){
         try{
             Request request = new Request();
             ObjectMapper maper = Mapper.getObjectMapper();
             List<AirStation> powietrzeAllList = maper.readValue(request.sendGet("https://api.gios.gov.pl/pjp-api/rest/station/findAll")
                     , new TypeReference<List<AirStation>>(){});
-            // System.out.println(jsonObject1);
-            //System.out.println(jsonNode);
-            //powietrzeAllList.forEach(System.out::println);
-            for(int i=0; i<powietrzeAllList.size();i++) {
-                System.out.println(powietrzeAllList.get(i).toString());
-            }
+
+            powietrzeAllList.stream().forEach(System.out::println);
+            return powietrzeAllList;
         }
         catch (Exception e){
             e.printStackTrace();
+            return null;
         }
     }
 }

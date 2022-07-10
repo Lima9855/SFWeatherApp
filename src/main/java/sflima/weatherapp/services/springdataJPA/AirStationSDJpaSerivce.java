@@ -8,7 +8,9 @@ import sflima.weatherapp.repository.CityRepository;
 import sflima.weatherapp.repository.CommuneRepository;
 import sflima.weatherapp.services.AirStationService;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -64,4 +66,12 @@ public class AirStationSDJpaSerivce implements AirStationService {
     public void deleteById(Long aLong) {
         airStationRepository.deleteById(aLong);
     }
+
+    /*@Override
+    public AirStation saveAll(List<AirStation> airStationList) {
+
+        List<AirStation> airStations = new ArrayList<>();
+
+        airStationList.stream()..forEach(airStationRepository.save());
+    }*/
 }
