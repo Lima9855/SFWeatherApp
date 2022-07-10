@@ -1,4 +1,4 @@
-package sflima.wheatherapp.services;
+package sflima.weatherapp.services;
 
 import java.util.Set;
 

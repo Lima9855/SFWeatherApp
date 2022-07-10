@@ -1,7 +1,7 @@
-package sflima.wheatherapp.repository;
+package sflima.weatherapp.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import sflima.wheatherapp.model.AirStation;
+import sflima.weatherapp.model.AirStation;
 
 public interface AirStationRepository extends CrudRepository<AirStation,Long> {
     AirStation findByStationId (int stationId);

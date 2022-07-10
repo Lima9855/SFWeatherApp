@@ -1,6 +1,6 @@
-package sflima.wheatherapp.services;
+package sflima.weatherapp.services;
 
-import sflima.wheatherapp.model.AirStation;
+import sflima.weatherapp.model.AirStation;
 
 public interface AirStationService extends CrudService<AirStation, Long> {
 

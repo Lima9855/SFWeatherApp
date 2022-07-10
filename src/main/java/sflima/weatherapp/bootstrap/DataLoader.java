@@ -1,4 +1,4 @@
-package sflima.wheatherapp.bootstrap;
+package sflima.weatherapp.bootstrap;
 
 import org.springframework.stereotype.Component;
 

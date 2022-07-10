@@ -1,7 +1,7 @@
-package sflima.wheatherapp.repository;
+package sflima.weatherapp.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import sflima.wheatherapp.model.Commune;
+import sflima.weatherapp.model.Commune;
 
 public interface CommuneRepository extends CrudRepository<Commune,Long> {
     Commune findByCommuneName(String communeName);

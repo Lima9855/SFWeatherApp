@@ -1,6 +1,6 @@
-package sflima.wheatherapp.services;
+package sflima.weatherapp.services;
 
-import sflima.wheatherapp.model.Commune;
+import sflima.weatherapp.model.Commune;
 
 public interface CommuneService extends CrudService<Commune, Long>{
 

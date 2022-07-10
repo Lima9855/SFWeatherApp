@@ -1,15 +1,12 @@
-package sflima.wheatherapp.services.springdataJPA;
+package sflima.weatherapp.services.springdataJPA;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
-import sflima.wheatherapp.model.AirPort;
-import sflima.wheatherapp.model.AirStation;
-import sflima.wheatherapp.repository.AirStationRepository;
-import sflima.wheatherapp.repository.AirportRepository;
-import sflima.wheatherapp.repository.CityRepository;
-import sflima.wheatherapp.repository.CommuneRepository;
-import sflima.wheatherapp.services.AirStationService;
-import sflima.wheatherapp.services.AirportService;
+import sflima.weatherapp.model.AirStation;
+import sflima.weatherapp.repository.AirStationRepository;
+import sflima.weatherapp.repository.CityRepository;
+import sflima.weatherapp.repository.CommuneRepository;
+import sflima.weatherapp.services.AirStationService;
 
 import java.util.HashSet;
 import java.util.Set;

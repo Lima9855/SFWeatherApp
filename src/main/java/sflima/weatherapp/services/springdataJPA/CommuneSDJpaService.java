@@ -1,10 +1,10 @@
-package sflima.wheatherapp.services.springdataJPA;
+package sflima.weatherapp.services.springdataJPA;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
-import sflima.wheatherapp.model.Commune;
-import sflima.wheatherapp.repository.CommuneRepository;
-import sflima.wheatherapp.services.CommuneService;
+import sflima.weatherapp.model.Commune;
+import sflima.weatherapp.repository.CommuneRepository;
+import sflima.weatherapp.services.CommuneService;
 
 import java.util.HashSet;
 import java.util.Set;

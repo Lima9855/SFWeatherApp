@@ -1,4 +1,4 @@
-package sflima.wheatherapp.model;
+package sflima.weatherapp.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,7 +1,7 @@
-package sflima.wheatherapp.repository;
+package sflima.weatherapp.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import sflima.wheatherapp.model.AirPort;
+import sflima.weatherapp.model.AirPort;
 
 public interface AirportRepository extends CrudRepository<AirPort, Long> {
     AirPort findByName (String name);

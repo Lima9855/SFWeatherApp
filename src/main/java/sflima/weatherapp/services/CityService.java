@@ -1,6 +1,6 @@
-package sflima.wheatherapp.services;
+package sflima.weatherapp.services;
 
-import sflima.wheatherapp.model.City;
+import sflima.weatherapp.model.City;
 
 public interface CityService extends CrudService<City,Long>{
     City findByCityId (int cityIdentyficator);
