@@ -1,6 +1,7 @@
 package sflima.weatherapp.bootstrap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import sflima.weatherapp.Api.Parse;
 import sflima.weatherapp.model.AirPort;
@@ -16,7 +17,7 @@ import java.util.List;
 import java.util.Set;
 
 @Component
-public class DataLoader  {
+public class DataLoader implements CommandLineRunner {
 
    /* private final AirportService airportService;
     private final AirStationService airStationService;
@@ -32,6 +33,10 @@ public class DataLoader  {
     }*/ //problem z DI nie widzi bean serwisu
 
 
+    @Override
+    public void run(String... args) throws Exception {
+        loadData();
+    }
 
     private void loadData() {
 

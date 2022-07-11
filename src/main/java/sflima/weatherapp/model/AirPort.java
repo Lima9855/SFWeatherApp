@@ -35,4 +35,10 @@ public class AirPort extends BaseEntity {
     @Column(name = "barometer")
     private Integer barometer;
 
+    @Override
+    public String toString()
+    {
+        return  this.icao + " " + this.name;
+    }
+
 }

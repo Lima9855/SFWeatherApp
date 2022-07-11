@@ -21,14 +21,14 @@ public class CitySDJpaService implements CityService {
         this.communeRepository = communeRepository;
     }
 
-    @Override
+    /*@Override
     public City findByCityId(int cityIdentyficator) {
         return cityRepository.findByCityIdentyficator(cityIdentyficator);
-    }
+    }*/
 
     @Override
-    public City findByCityName(String cityName) {
-        return cityRepository.findByCityName(cityName);
+    public City findByName(String name) {
+        return cityRepository.findByName(name);
     }
 
     @Override
