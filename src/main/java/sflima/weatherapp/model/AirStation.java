@@ -13,9 +13,10 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "air_station")
-public class AirStation extends BaseEntity{
+public class AirStation  {
+    @Id
     @Column(name = "stationId")
-    private int stationId;
+    private Long id;
     @Column(name = "stationName")
     private String stationName;
     @Column(name = "gegrLat")
@@ -27,4 +28,13 @@ public class AirStation extends BaseEntity{
     private City city;
     @Column(name = "addressStreet")
     private String addressStreet;
+
+    @Override
+    public String toString() {
+        return "PowietrzeAll{" +
+                "id=" + id +
+                ", stationName='" + stationName + '\'' +
+                ", addressStreet='" + addressStreet + '\'' +
+                '}';
+    }
 }
