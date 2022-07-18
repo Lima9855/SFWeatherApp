@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @Profile("springdatajpa")
@@ -27,24 +28,18 @@ public class AirStationSDJpaSerivce implements AirStationService {
         this.communeRepository = communeRepository;
     }
 
-    @Override
-    public AirStation findByStationId(int stationId) {
-        return null;
-    }
 
     @Override
-    public AirStation findByStationName(String stationName) {
+    public AirStation getByStationName(String stationName) {
         return null;
     }
 
     @Override
     public Set<AirStation> findAll() {
 
-        Set<AirStation> airStations = new HashSet<>();
-
-        airStationRepository.findAll().forEach(airStations::add);
-
-        return airStations;
+        return new HashSet<>(airStationRepository.findAll()); // tutaj inteliJ sam podpowiedział jak właściwie zmienić ten kod na ten który poleciłeś
+        // hashset wydawał mi się najlepszy z powodu tego że w razie czego nie przyjmie dwa razy tego samego obiektu, chyba że to niemożliwe
+        // to wtedy faktycznie lista chyba byłaby szybsza w działaniu
     }
 
     @Override
@@ -67,11 +62,15 @@ public class AirStationSDJpaSerivce implements AirStationService {
         airStationRepository.deleteById(aLong);
     }
 
-    /*@Override
-    public AirStation saveAll(List<AirStation> airStationList) {
+    @Override
+    public List<AirStation> saveAll(List<AirStation> airStationList) {
 
         List<AirStation> airStations = new ArrayList<>();
 
-        airStationList.stream()..forEach(airStationRepository.save());
-    }*/
+        airStationRepository.saveAll(airStationList);
+
+        return airStations;
+    }
+
+
 }

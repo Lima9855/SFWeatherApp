@@ -1,4 +1,4 @@
-package sflima.weatherapp.Api;
+package sflima.weatherapp.api;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -11,8 +11,7 @@ public class Request {
     public Request() {}
     private final CloseableHttpClient httpClient = HttpClients.createDefault();
     public static Request getRequest(){
-        Request request = new Request();
-        return request;
+        return new Request();
     }
 
 
