@@ -1,6 +1,7 @@
 
 package sflima.weatherapp.model.airport;
 
+import java.util.List;
 import javax.annotation.Generated;
 import javax.persistence.*;
 
@@ -14,22 +15,32 @@ import lombok.Setter;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "feet",
-    "meters"
+    "results",
+    "data"
 })
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Embeddable
-public class Elevation {
+public class Airport {
     @Id()
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @JsonProperty("feet")
-    private Integer feet;
-    @JsonProperty("meters")
-    private Integer meters;
+    @JsonProperty("results")
+    private Integer results;
+    @JsonProperty("data")
+    @OneToMany(mappedBy = "airport")
+    private List<Datum> data = null;
+
+    @JsonProperty("data")
+    public List<Datum> getData() {
+        return data;
+    }
+
+    @JsonProperty("data")
+    public void setData(List<Datum> data) {
+        this.data = data;
+    }
 
 }
