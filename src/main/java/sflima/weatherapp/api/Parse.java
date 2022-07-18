@@ -1,6 +1,5 @@
-package sflima.weatherapp.Api;
+package sflima.weatherapp.api;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONArray;
@@ -9,7 +8,6 @@ import sflima.weatherapp.model.AirPort;
 import sflima.weatherapp.model.AirStation;
 
 import java.util.List;
-import java.util.Set;
 
 public class Parse {
     public AirPort parseAirportData(String URL) /*throws JsonProcessingException*/ {

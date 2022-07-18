@@ -1,12 +1,14 @@
-package sflima.weatherapp.Api;
+package sflima.weatherapp.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Mapper {
-    public static ObjectMapper objectMapper = getObjectMapper();
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     public static ObjectMapper getObjectMapper(){
-        ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper;
     }
 }
+
+
+// zrobić klase z configiem, co umożliwi testowanie
