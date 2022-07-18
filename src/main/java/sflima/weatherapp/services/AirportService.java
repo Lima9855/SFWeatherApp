@@ -1,10 +1,11 @@
 package sflima.weatherapp.services;
 
-import sflima.weatherapp.model.AirPort;
 
-public interface AirportService extends CrudService<AirPort, Long>{
+import sflima.weatherapp.model.airport.Airport;
 
-    AirPort findByName (String name);
-    AirPort findByIcao (String icao);
+public interface AirportService extends CrudService<Airport, Long>{
+
+    Airport getByName (String name);
+    Airport getByIcao (String icao);
 
 }

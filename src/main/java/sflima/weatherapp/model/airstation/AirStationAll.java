@@ -1,5 +1,5 @@
 
-package sflima.weatherapp.model.airport;
+package sflima.weatherapp.model.airstation;
 
 import javax.annotation.Generated;
 import javax.persistence.*;
@@ -14,28 +14,34 @@ import lombok.Setter;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "hg",
-    "hpa",
-    "kpa",
-    "mb"
+    "id",
+    "stationName",
+    "gegrLat",
+    "gegrLon",
+    "city",
+    "addressStreet"
 })
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Embeddable
-public class Barometer {
+public class AirStationAll {
     @Id()
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @JsonProperty("hg")
-    private Float hg;
-    @JsonProperty("hpa")
-    private Float hpa;
-    @JsonProperty("kpa")
-    private Float kpa;
-    @JsonProperty("mb")
-    private Float mb;
+    @JsonProperty("id")
+    public Integer id_station;
+    @JsonProperty("stationName")
+    public String stationName;
+    @JsonProperty("gegrLat")
+    public String gegrLat;
+    @JsonProperty("gegrLon")
+    public String gegrLon;
+    @Embedded
+    @JsonProperty("city")
+    public City city;
+    @JsonProperty("addressStreet")
+    public String addressStreet;
 
 }
