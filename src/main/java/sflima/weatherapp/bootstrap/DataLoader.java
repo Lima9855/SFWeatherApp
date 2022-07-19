@@ -1,22 +1,35 @@
 package sflima.weatherapp.bootstrap;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import sflima.weatherapp.model.airport.Example;
-import sflima.weatherapp.services.apiservice.AirportApiService;
+import sflima.weatherapp.model.airport.AirPort;
+import sflima.weatherapp.model.airstationfindall.AirStationAll;
+import sflima.weatherapp.repository.AirPortRepository;
+import sflima.weatherapp.repository.AirStationRepository;
+import sflima.weatherapp.services.apiservice.AirStationApiService;
+import sflima.weatherapp.services.apiservice.AirPortApiService;
+
+import java.util.List;
 
 @Component
 public class DataLoader implements CommandLineRunner {
 
     Logger logger = LoggerFactory.getLogger(DataLoader.class);
 
+    private final AirPortApiService airportApiService;
+    private final AirStationApiService airStationApiService;
+    private final AirStationRepository airStationRepository;
+    private final AirPortRepository airPortRepository;
 
-    private final AirportApiService airportApiService;
-
-    public DataLoader(AirportApiService airportApiService) {
+    public DataLoader(AirPortApiService airportApiService,
+                      AirStationApiService airStationApiService, AirStationRepository airStationRepository, AirPortRepository airPortRepository) {
         this.airportApiService = airportApiService;
+        this.airStationApiService = airStationApiService;
+        this.airStationRepository = airStationRepository;
+        this.airPortRepository = airPortRepository;
     }
 
     @Override
@@ -27,11 +40,16 @@ public class DataLoader implements CommandLineRunner {
     private void loadData() {
 
 
-        Example d1 = airportApiService.getDatum("metar/EDDC/decoded");
+        AirPort d1 = airportApiService.getAirport("metar/EDDC/decoded");
+        logger.info("lotnisko icao " + d1.toString());
 
-        logger.info("lotnisko icao " + d1.getData());
-        //resttemplate tez pokazuje ze obiekt Datum jest pusty, same nulle
-        //Datum d1 = airportApiService.getData("https://api.checkwx.com/metar/EPWA/decoded");
-        //airStations = airStationApiService.test();
+        airPortRepository.save(d1);
+
+        List<AirStationAll> a1 = airStationApiService.getAirStaions();
+
+        a1.forEach(o -> logger.info("Airstation " + o ));
+
+        airStationRepository.saveAll(a1);
+
     }
 }

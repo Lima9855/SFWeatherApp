@@ -1,5 +1,5 @@
 
-package sflima.weatherapp.model.airport;
+package sflima.weatherapp.model.airstationfindall;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -13,8 +13,9 @@ import javax.persistence.Embeddable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "code",
-    "text"
+    "communeName",
+    "districtName",
+    "provinceName"
 })
 
 @Getter
@@ -22,11 +23,13 @@ import javax.persistence.Embeddable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
-public class Cloud {
+public class Commune {
 
-    @JsonProperty("code")
-    private String code;
-    @JsonProperty("text")
-    private String text;
+    @JsonProperty("communeName")
+    public String communeName;
+    @JsonProperty("districtName")
+    public String districtName;
+    @JsonProperty("provinceName")
+    public String provinceName;
 
 }
