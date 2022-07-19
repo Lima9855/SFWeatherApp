@@ -1,8 +1,5 @@
 
-package sflima.weatherapp.model.airstation;
-
-import javax.annotation.Generated;
-import javax.persistence.*;
+package sflima.weatherapp.model.airstationfindall;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -11,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.Embeddable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({

@@ -1,10 +1,6 @@
 
 package sflima.weatherapp.model.airport;
 
-import java.util.List;
-import javax.annotation.Generated;
-import javax.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -13,6 +9,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import sflima.weatherapp.model.BaseEntity;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import java.util.List;
 //import sflima.weatherapp.model.BaseEntity;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -25,7 +26,7 @@ import sflima.weatherapp.model.BaseEntity;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Airport extends BaseEntity {
+public class AirPort extends BaseEntity {
 
     @JsonProperty("results")
     private Integer results;

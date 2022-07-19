@@ -1,7 +1,5 @@
 
-package sflima.weatherapp.model.airstation;
-
-import javax.persistence.*;
+package sflima.weatherapp.model.airstationfindall;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -11,6 +9,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import sflima.weatherapp.model.BaseEntity;
+
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -42,4 +43,12 @@ public class AirStationAll extends BaseEntity {
     @JsonProperty("addressStreet")
     public String addressStreet;
 
+    @Override
+    public String toString() {
+        return "AirStationAll{" +
+                "stationIdentyficator=" + stationIdentyficator +
+                ", stationName='" + stationName + '\'' +
+                ", addressStreet='" + addressStreet + '\'' +
+                '}';
+    }
 }

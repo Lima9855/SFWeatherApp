@@ -1,12 +1,10 @@
 package sflima.weatherapp.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import sflima.weatherapp.model.airport.Datum;
 
-import java.util.Optional;
-
-public interface DatumRepository extends CrudRepository<Datum, Long> {
-
-    //Optional<Datum> findDatumByIcao(String icao);
+@Repository
+public interface DatumRepository extends JpaRepository<Datum, Long> {
 
 }

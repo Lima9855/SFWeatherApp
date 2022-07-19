@@ -1,10 +1,6 @@
 
 package sflima.weatherapp.model.airport;
 
-import java.util.List;
-import javax.annotation.Generated;
-import javax.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -14,6 +10,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import sflima.weatherapp.model.BaseEntity;
+
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -39,7 +40,8 @@ import sflima.weatherapp.model.BaseEntity;
 public class Datum extends BaseEntity {
 
     @ManyToOne
-    private Airport airport;
+    @JoinColumn
+    private AirPort airport;
     @Embedded
     @JsonProperty("barometer")
     private Barometer barometer;
