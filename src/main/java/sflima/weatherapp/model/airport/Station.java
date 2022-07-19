@@ -20,27 +20,23 @@ import lombok.Setter;
     "name",
     "type"
 })
-@Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
 public class Station {
-    @Id()
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    @ManyToOne
-    @JoinColumn(name = "geometry_id")
+
+    @Embedded
     @JsonProperty("geometry")
     private Geometry geometry;
     @JsonProperty("icao")
-    private String icao;
+    private String icaoStation;
     @JsonProperty("location")
     private String location;
     @JsonProperty("name")
     private String name;
     @JsonProperty("type")
-    private String type;
+    private String typeStation;
 
 }

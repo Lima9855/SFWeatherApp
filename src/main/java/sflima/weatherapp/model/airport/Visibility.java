@@ -19,18 +19,15 @@ import lombok.Setter;
     "miles",
     "miles_float"
 })
-@Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
 public class Visibility {
-    @Id()
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+
     @JsonProperty("meters")
-    private String meters;
+    private String metersVisibility;
     @JsonProperty("meters_float")
     private Integer metersFloat;
     @JsonProperty("miles")

@@ -12,6 +12,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import sflima.weatherapp.model.BaseEntity;
+//import sflima.weatherapp.model.BaseEntity;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -23,14 +25,12 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Airport {
-    @Id()
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class Airport extends BaseEntity {
+
     @JsonProperty("results")
     private Integer results;
     @JsonProperty("data")
-    @OneToMany(mappedBy = "airport")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "airport")
     private List<Datum> data = null;
 
     @JsonProperty("data")
@@ -43,4 +43,10 @@ public class Airport {
         this.data = data;
     }
 
+    @Override
+    public String toString() {
+        return "Airport{" +
+                "data=" + data +
+                '}';
+    }
 }

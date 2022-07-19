@@ -1,7 +1,6 @@
 
 package sflima.weatherapp.model.airstation;
 
-import javax.annotation.Generated;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -11,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import sflima.weatherapp.model.BaseEntity;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -26,12 +26,10 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AirStationAll {
-    @Id()
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class AirStationAll extends BaseEntity {
+
     @JsonProperty("id")
-    public Integer id_station;
+    public Integer stationIdentyficator;
     @JsonProperty("stationName")
     public String stationName;
     @JsonProperty("gegrLat")

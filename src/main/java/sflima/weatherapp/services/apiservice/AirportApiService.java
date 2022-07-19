@@ -42,7 +42,7 @@ public class AirportApiService {
         webClient= builder.baseUrl("https://api.checkwx.com/").build();
     }
 
-    public Airport getDatum(String uri){
+    public Airport getAirport(String uri){
         return webClient.get()
                 .uri(uri)
                 .header("X-API-Key","5b2a69d934bd4103968a69a4ee")

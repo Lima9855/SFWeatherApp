@@ -17,19 +17,17 @@ import lombok.Setter;
     "feet",
     "meters"
 })
-@Entity
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
 public class Elevation {
-    @Id()
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+
     @JsonProperty("feet")
     private Integer feet;
     @JsonProperty("meters")
-    private Integer meters;
+    private Integer metersElevation;
 
 }

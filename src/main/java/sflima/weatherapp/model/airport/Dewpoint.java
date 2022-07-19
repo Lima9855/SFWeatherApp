@@ -17,19 +17,17 @@ import lombok.Setter;
     "celsius",
     "fahrenheit"
 })
-@Entity
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
 public class Dewpoint {
-    @Id()
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+
     @JsonProperty("celsius")
-    private Integer celsius;
+    private Integer celsiusDewpoint;
     @JsonProperty("fahrenheit")
-    private Integer fahrenheit;
+    private Integer fahrenheitDewpoint;
 
 }

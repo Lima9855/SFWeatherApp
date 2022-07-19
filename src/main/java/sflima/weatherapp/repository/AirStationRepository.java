@@ -1,8 +1,12 @@
 package sflima.weatherapp.repository;
 
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import sflima.weatherapp.model.airport.Airport;
+import sflima.weatherapp.model.airstation.AirStationAll;
 
-public interface AirStationRepository extends JpaRepository<AirStation, Long> {
-    //AirStation findByStationId (int stationId);
-    AirStation findByStationName (String stationName);
+import java.util.Optional;
+
+public interface AirStationRepository extends JpaRepository<AirStationAll, Long> {
+
 }

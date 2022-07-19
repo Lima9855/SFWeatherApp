@@ -17,16 +17,14 @@ import lombok.Setter;
     "code",
     "text"
 })
-@Entity
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
 public class Cloud {
-    @Id()
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+
     @JsonProperty("code")
     private String code;
     @JsonProperty("text")

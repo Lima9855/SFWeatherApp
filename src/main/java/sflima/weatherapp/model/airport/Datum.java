@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Generated;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -12,6 +13,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import sflima.weatherapp.model.BaseEntity;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -34,10 +36,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Datum {
-    @Id()
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class Datum extends BaseEntity {
+
     @ManyToOne
     private Airport airport;
     @Embedded
@@ -45,7 +45,8 @@ public class Datum {
     private Barometer barometer;
     @Embedded
     @JsonProperty("clouds")
-    private Cloud clouds = null;
+    @JsonIgnore
+    private Cloud clouds ;
     @Embedded
     @JsonProperty("dewpoint")
     private Dewpoint dewpoint;
@@ -76,4 +77,22 @@ public class Datum {
     @JsonProperty("wind")
     private Wind wind;
 
+    @Override
+    public String toString() {
+        return "Datum{" +
+                ", barometer=" + barometer +
+                ", clouds= ignored via @JsonIgnore"  +
+                ", dewpoint=" + dewpoint +
+                ", elevation=" + elevation +
+                ", flightCategory='" + flightCategory + '\'' +
+                ", humidity=" + humidity +
+                ", icao='" + icao + '\'' +
+                ", observed='" + observed + '\'' +
+                ", rawText='" + rawText + '\'' +
+                ", station=" + station +
+                ", temperature=" + temperature +
+                ", visibility=" + visibility +
+                ", wind=" + wind +
+                '}';
+    }
 }

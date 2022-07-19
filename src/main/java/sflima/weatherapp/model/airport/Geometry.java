@@ -18,17 +18,16 @@ import lombok.Setter;
     "coordinates",
     "type"
 })
-@Entity
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
 public class Geometry {
-    @Id()
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+
     @JsonProperty("coordinates")
+    @ElementCollection(targetClass = Float.class)
     private List<Float> coordinates = null;
     @JsonProperty("type")
     private String type;

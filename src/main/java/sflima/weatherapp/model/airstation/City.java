@@ -18,16 +18,14 @@ import lombok.Setter;
     "name",
     "commune"
 })
-@Entity
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
 public class City {
-    @Id()
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+
     @JsonProperty("id")
     public Integer id_station;
     @JsonProperty("name")

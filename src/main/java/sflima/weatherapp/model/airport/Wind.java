@@ -12,6 +12,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
+import sflima.weatherapp.model.BaseEntity;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -21,7 +22,6 @@ import org.springframework.stereotype.Component;
     "speed_mph",
     "speed_mps"
 })
-@Entity
 @Getter
 @Setter
 @AllArgsConstructor
@@ -29,9 +29,6 @@ import org.springframework.stereotype.Component;
 @Embeddable
 public class Wind {
 
-    @Id()
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     @JsonProperty("degrees")
     private Integer degrees;
     @JsonProperty("speed_kph")

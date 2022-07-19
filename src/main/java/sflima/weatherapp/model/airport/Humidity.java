@@ -16,16 +16,14 @@ import lombok.Setter;
 @JsonPropertyOrder({
     "percent"
 })
-@Entity
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
 public class Humidity {
-    @Id()
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+
     @JsonProperty("percent")
     private Integer percent;
 

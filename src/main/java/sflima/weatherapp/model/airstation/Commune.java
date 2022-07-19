@@ -18,16 +18,14 @@ import lombok.Setter;
     "districtName",
     "provinceName"
 })
-@Entity
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
 public class Commune {
-    @Id()
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+
     @JsonProperty("communeName")
     public String communeName;
     @JsonProperty("districtName")
