@@ -11,10 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import sflima.weatherapp.model.BaseEntity;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -37,14 +34,14 @@ import javax.persistence.ManyToOne;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Datum extends BaseEntity {
+@Table(name = "Data")
+public class AirPortData extends BaseEntity {
 
-    @ManyToOne
-    @JoinColumn
-    private AirPort airport;
     @Embedded
     @JsonProperty("barometer")
     private Barometer barometer;
+    /*@Embedded
+    private Geometry geometry;*/
     @Embedded
     @JsonProperty("clouds")
     @JsonIgnore
