@@ -9,8 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
+import javax.persistence.*;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -28,8 +27,10 @@ import javax.persistence.Embedded;
 public class Station {
 
     @Embedded
+    @JoinTable(name = "Data")
     @JsonProperty("geometry")
     private Geometry geometry;
+    @Transient
     @JsonProperty("icao")
     private String icaoStation;
     @JsonProperty("location")
