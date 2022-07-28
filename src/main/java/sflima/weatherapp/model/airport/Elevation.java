@@ -11,11 +11,7 @@ import lombok.Setter;
 
 import javax.persistence.Embeddable;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "feet",
-    "meters"
-})
+
 
 @Getter
 @Setter
@@ -24,9 +20,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Elevation {
 
-    @JsonProperty("feet")
     private Integer feet;
-    @JsonProperty("meters")
     private Integer metersElevation;
 
 }

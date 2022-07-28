@@ -27,10 +27,8 @@ import java.util.List;
 @NoArgsConstructor
 public class Geometry {
 
-    @JsonProperty("coordinates")
-    @ElementCollection(targetClass = Float.class)
-    private List<Float> coordinates = null;
-    @JsonProperty("type")
+    private String coordinates;
     private String type;
+
 
 }

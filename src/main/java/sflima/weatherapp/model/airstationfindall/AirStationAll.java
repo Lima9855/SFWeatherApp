@@ -31,16 +31,11 @@ public class AirStationAll extends BaseEntity {
 
     @JsonProperty("id")
     public Integer stationIdentyficator;
-    @JsonProperty("stationName")
     public String stationName;
-    @JsonProperty("gegrLat")
     public String gegrLat;
-    @JsonProperty("gegrLon")
     public String gegrLon;
     @Embedded
-    @JsonProperty("city")
     public City city;
-    @JsonProperty("addressStreet")
     public String addressStreet;
 
     @Override

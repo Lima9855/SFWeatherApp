@@ -25,9 +25,8 @@ public class AirStationAllJpaService {
     public AirStationAll saveAirStationAll(AirStationAll airStationAll){
         return airStationRepository.save(airStationAll);
     }
-    //<S extends T> List<S> saveAll(Iterable<S> entities);
+
     public List<AirStationAll> saveAll(List<AirStationAll> airStationAllList){
         return airStationRepository.saveAll(airStationAllList);
     }
 }
-// object mapperem zrobic żeby z airportALL robily sie obiekty tego typu

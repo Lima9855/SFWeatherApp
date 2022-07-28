@@ -28,10 +28,8 @@ public class City {
 
     @JsonProperty("id")
     public Integer id_station;
-    @JsonProperty("name")
     public String name;
     @Embedded
-    @JsonProperty("commune")
     public Commune commune;
 
 }

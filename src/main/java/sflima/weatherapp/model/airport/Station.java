@@ -1,6 +1,7 @@
 
 package sflima.weatherapp.model.airport;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -21,23 +22,24 @@ import javax.persistence.*;
 })
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Embeddable
+@NoArgsConstructor
+@AllArgsConstructor
 public class Station {
 
     @Embedded
-    @JoinTable(name = "Data")
-    @JsonProperty("geometry")
     private Geometry geometry;
     @Transient
     @JsonProperty("icao")
     private String icaoStation;
-    @JsonProperty("location")
     private String location;
-    @JsonProperty("name")
     private String name;
     @JsonProperty("type")
     private String typeStation;
+    /*@JsonIgnore
+    private String coordinatesGeo = geometry.getCoordinates().toString();
+    @JsonIgnore
+    private String typeGeo = geometry.getType();*/ // add this to model after refactoring model classes to RestApiDTO
+
 
 }

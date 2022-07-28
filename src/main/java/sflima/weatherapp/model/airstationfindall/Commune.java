@@ -25,11 +25,8 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Commune {
 
-    @JsonProperty("communeName")
     public String communeName;
-    @JsonProperty("districtName")
     public String districtName;
-    @JsonProperty("provinceName")
     public String provinceName;
 
 }
