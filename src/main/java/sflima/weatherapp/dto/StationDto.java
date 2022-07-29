@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import sflima.weatherapp.model.airport.Geometry;
 
 import java.io.Serializable;
@@ -17,16 +19,17 @@ import java.io.Serializable;
         "name",
         "type"
 })
-
-@AllArgsConstructor
 @Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class StationDto implements Serializable {
 
     private GeometryDto geometry;
     @JsonProperty("icao")
     private String icaoStation;
-    private final String location;
-    private final String name;
+    private  String location;
+    private  String name;
     @JsonProperty("type")
-    private final String typeStation;
+    private  String typeStation;
 }

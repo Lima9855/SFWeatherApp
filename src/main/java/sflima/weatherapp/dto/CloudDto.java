@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -11,9 +13,11 @@ import java.io.Serializable;
         "code",
         "text"
 })
-@AllArgsConstructor
 @Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class CloudDto implements Serializable {
-    private final String code;
-    private final String text;
+    private  String code;
+    private  String text;
 }

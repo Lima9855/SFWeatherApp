@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -15,14 +17,16 @@ import java.io.Serializable;
         "miles_float"
 })
 
-@AllArgsConstructor
 @Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class VisibilityDto implements Serializable {
     @JsonProperty("meters")
-    private final String metersVisibility;
+    private  String metersVisibility;
     @JsonProperty("meters_float")
-    private final Integer metersFloat;
-    private final String miles;
+    private  Integer metersFloat;
+    private  String miles;
     @JsonProperty("miles_float")
-    private final Float milesFloat;
+    private  Float milesFloat;
 }

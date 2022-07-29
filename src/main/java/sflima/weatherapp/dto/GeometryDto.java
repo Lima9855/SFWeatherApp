@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.List;
@@ -13,11 +15,13 @@ import java.util.List;
         "coordinates",
         "type"
 })
-@AllArgsConstructor
 @Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class GeometryDto implements Serializable {
 
     @JsonProperty("coordinates")
-    private final List<Float> coordinates;
-    private final String type;
+    private  List<Float> coordinates;
+    private  String type;
 }

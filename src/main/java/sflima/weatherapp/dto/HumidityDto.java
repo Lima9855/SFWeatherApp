@@ -6,21 +6,20 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
         "percent"
 })
+@Setter
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class HumidityDto implements Serializable {
     @JsonProperty("percent")
     private Integer percent;
 
-    public HumidityDto(Integer percent) {
-        this.percent = percent;
-    }
 
-    public HumidityDto() {
-    }
 }

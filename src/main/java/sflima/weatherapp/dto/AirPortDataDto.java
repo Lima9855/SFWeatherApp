@@ -30,25 +30,27 @@ import java.util.List;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class AirPortDataDto implements Serializable {
 
 
-    private final BarometerDto barometer;
-    private final List<CloudDto> clouds = null;
-    private final DewpointDto dewpoint;
-    private final ElevationDto elevation;
+    private  BarometerDto barometer;
+    private  List<CloudDto> clouds = null;
+    private  DewpointDto dewpoint;
+    private  ElevationDto elevation;
     @JsonProperty("flight_category")
-    private final String flightCategory;
-    private final HumidityDto humidity;
-    private final String icao;
-    private final String observed;
+    private  String flightCategory;
+    private  HumidityDto humidity;
+    private  String icao;
+    private  String observed;
     @JsonProperty("raw_text")
-    private final String rawText;
-    private final StationDto station;
-    private final TemperatureDto temperature;
-    private final VisibilityDto visibility;
-    private final WindDto wind;
-    private final GeometryDto geometry;
+    private  String rawText;
+    private  StationDto station;
+    private  TemperatureDto temperature;
+    private  VisibilityDto visibility;
+    private  WindDto wind;
+    private  GeometryDto geometry;
 
     public AirPortDataDto(BarometerDto barometer, DewpointDto dewpoint,
                           ElevationDto elevation, String flightCategory, HumidityDto humidity,

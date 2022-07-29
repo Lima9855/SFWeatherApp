@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -16,16 +18,18 @@ import java.io.Serializable;
         "speed_mps"
 })
 
-@AllArgsConstructor
 @Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class WindDto implements Serializable {
-    private final Integer degrees;
+    private  Integer degrees;
     @JsonProperty("speed_kph")
-    private final Integer speedKph;
+    private  Integer speedKph;
     @JsonProperty("speed_kts")
-    private final Integer speedKts;
+    private  Integer speedKts;
     @JsonProperty("speed_mph")
-    private final Integer speedMph;
+    private  Integer speedMph;
     @JsonProperty("speed_mps")
-    private final Integer speedMps;
+    private  Integer speedMps;
 }

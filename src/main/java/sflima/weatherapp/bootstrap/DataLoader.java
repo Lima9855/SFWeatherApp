@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import sflima.weatherapp.dto.AirPortDto;
 import sflima.weatherapp.mapper.AirPortDataMapper;
+import sflima.weatherapp.model.airport.AirPortData;
 import sflima.weatherapp.repository.AirPortDataRepository;
 import sflima.weatherapp.repository.AirStationRepository;
 import sflima.weatherapp.services.apiservice.AirStationApiService;
@@ -49,15 +50,15 @@ public class DataLoader implements CommandLineRunner {
         AirPortDto d4 = airportApiService.getAirport("metar/EDDB/decoded");
         AirPortDto d5 = airportApiService.getAirport("metar/EDDC/decoded");
         AirPortDto d6 = airportApiService.getAirport("metar/EPWR/decoded");
-        //logger.info("lotnisko icao " + d1.toString());
+        logger.info("lotnisko icao " + d1.toString());
         logger.info("lotnisko icao " + d2.toString());
         logger.info("lotnisko icao " + d3.toString());
         logger.info("lotnisko icao " + d4.toString());
 
-        //AirPortData data1 = mapper.dtoToEntity(d1.getData().get(0));
+        AirPortData data1 = mapper.dtoToEntity(d2.getData().get(0));
 
-        //logger.info("DATA FROM DTO " + data1);
-        //airPortDataRepository.save(d1.getData().get(0)); //hard coded get(0) json from response always returns List of one object
+        logger.info("DATA FROM DTO " + data1);
+        airPortDataRepository.save(data1); //hard coded get(0) json from response always returns List of one object
         //airPortDataRepository.save(d3.getData().get(0)); i need a condition that will stop a save() if response doesnt contain any data
         // after refactoring and adding dto classes i need a service that will map my dto object to model object then i can
         // saved mapped object to a database via repository

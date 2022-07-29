@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -13,10 +15,12 @@ import java.io.Serializable;
         "meters"
 })
 
-@AllArgsConstructor
 @Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class ElevationDto implements Serializable {
-    private final Integer feet;
+    private  Integer feet;
     @JsonProperty("meters")
-    private final Integer metersElevation;
+    private  Integer metersElevation;
 }
