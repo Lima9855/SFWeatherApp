@@ -7,6 +7,7 @@ import lombok.Setter;
 import sflima.weatherapp.dto.AirPortDataDto;
 import sflima.weatherapp.model.BaseEntity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.List;
 public class Airport extends BaseEntity {
 
     private Integer results;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<AirPortData> data = null;
 
     @Override

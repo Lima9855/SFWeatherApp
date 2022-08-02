@@ -59,23 +59,22 @@ public class DataLoader implements CommandLineRunner {
         Airport airport1 = airPortMapper.dtoToEntity(d1);
         logger.info(" a1  " + airport1);
         airPortJpaService.saveAirPort(airport1);
+        Airport airport2 = airPortMapper.dtoToEntity(d2);
+        logger.info(" a2  " + airport2);
+        airPortJpaService.saveAirPort(airport2);
+        Airport airport3 = airPortMapper.dtoToEntity(d3);
+        logger.info(" a3  " + airport3);
+        airPortJpaService.saveAirPort(airport3);
+        Airport airport4 = airPortMapper.dtoToEntity(d4);
+        logger.info(" a4  " + airport4);
+        airPortJpaService.saveAirPort(airport4);
+        Airport airport5 = airPortMapper.dtoToEntity(d5);
+        logger.info(" a5  " + airport5);
+        airPortJpaService.saveAirPort(airport5);
+        Airport airport6 = airPortMapper.dtoToEntity(d6);
+        logger.info(" a6  " + airport6);
+        airPortJpaService.saveAirPort(airport6);
 
-
-
-        /*AirPortData data1 = airPortDataMapper.dtoToEntity(d1.getData().get(0));
-        AirPortData data2 = airPortDataMapper.dtoToEntity(d2.getData().get(0));
-        //AirPortData data3 = airPortDataMapper.dtoToEntity(d3.getData().get(0));
-        AirPortData data4 = airPortDataMapper.dtoToEntity(d4.getData().get(0));
-        AirPortData data5 = airPortDataMapper.dtoToEntity(d5.getData().get(0));
-        AirPortData data6 = airPortDataMapper.dtoToEntity(d6.getData().get(0));
-        logger.info("DATA FROM DTO " + data1);*/
-
-        /*airPortDataJpaService.saveAirportData(data1);
-        airPortDataJpaService.saveAirportData(data2);
-        //airPortDataJpaService.saveAirportData(data3);
-        airPortDataJpaService.saveAirportData(data4);
-        airPortDataJpaService.saveAirportData(data5);
-        airPortDataJpaService.saveAirportData(data6);*/
 
 
         List<AirStationAll> a1 = airStationApiService.getAirStaions();
