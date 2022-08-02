@@ -20,4 +20,12 @@ import java.io.Serializable;
 public class CloudDto implements Serializable {
     private  String code;
     private  String text;
+
+    @Override
+    public String toString() {
+        return "CloudDto{" +
+                "code='" + code + '\'' +
+                ", text='" + text + '\'' +
+                '}';
+    }
 }

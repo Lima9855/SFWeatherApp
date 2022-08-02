@@ -2,15 +2,28 @@ package sflima.weatherapp.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.springframework.beans.factory.annotation.Autowired;
 import sflima.weatherapp.dto.AirPortDataDto;
 import sflima.weatherapp.model.airport.AirPortData;
 
-@Mapper(componentModel = "spring")
-public interface AirPortDataMapper {
+@Mapper(componentModel = "spring" , uses = { CloudMapper.class, GeoMapper.class})
+public abstract class AirPortDataMapper {
 
 
-    AirPortData dtoToEntity(AirPortDataDto airPortDataDto);
-    AirPortDataDto entityToDto(AirPortData airPortData);
+     @Autowired
+     protected CloudMapper cloudMapper; //dunno how inject this bean in other way than manually
 
-    //@Mapping(target = "pole " , ignore = true)
+    @Mapping(target ="clouds" ,expression = "java(cloudMapper.cloudDtoToCloudEntity(dto.getClouds().get(0)))")
+    public  abstract AirPortData dtoToEntity(AirPortDataDto dto);
+
+
+
+    //public AirPortDataDto entityToDto(AirPortData airPortData);
+
+
+
+
+
+
+
 }

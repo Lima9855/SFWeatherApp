@@ -7,9 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import sflima.weatherapp.model.BaseEntity;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -20,10 +18,11 @@ import javax.persistence.Table;
 @Table(name = "Data")
 public class AirPortData extends BaseEntity {
 
+
     @Embedded
     private Barometer barometer;
-    //@Embedded
-    //private Cloud clouds ; // to tez trzeba wyrzucic
+    @Embedded
+    private Cloud clouds; // tutaj zamiast listy to obiekt
     @Embedded
     private Dewpoint dewpoint;
     @Embedded
@@ -42,6 +41,9 @@ public class AirPortData extends BaseEntity {
     private Visibility visibility;
     @Embedded
     private Wind wind;
+
+    @ManyToOne
+    private Airport airport;
 
     @Override
     public String toString() {

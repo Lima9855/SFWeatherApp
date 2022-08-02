@@ -27,7 +27,8 @@ import java.util.List;
 @NoArgsConstructor
 public class Geometry {
 
-    private String coordinates;
+    private Float coordinateX; // zamiast List<Float> dajemy Stringa
+    private Float coordinateY;
     private String type;
 
 

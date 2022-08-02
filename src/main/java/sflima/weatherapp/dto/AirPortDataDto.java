@@ -50,12 +50,11 @@ public class AirPortDataDto implements Serializable {
     private  TemperatureDto temperature;
     private  VisibilityDto visibility;
     private  WindDto wind;
-    private  GeometryDto geometry;
 
     public AirPortDataDto(BarometerDto barometer, DewpointDto dewpoint,
                           ElevationDto elevation, String flightCategory, HumidityDto humidity,
                           String icao, String observed, String rawText, StationDto station,
-                          TemperatureDto temperature, VisibilityDto visibility, WindDto wind, GeometryDto geometry) {
+                          TemperatureDto temperature, VisibilityDto visibility, WindDto wind) {
         this.barometer = barometer;
         this.dewpoint = dewpoint;
         this.elevation = elevation;
@@ -68,7 +67,6 @@ public class AirPortDataDto implements Serializable {
         this.temperature = temperature;
         this.visibility = visibility;
         this.wind = wind;
-        this.geometry = geometry;
     }
 
     @Override
@@ -87,7 +85,6 @@ public class AirPortDataDto implements Serializable {
                 ", temperature=" + temperature +
                 ", visibility=" + visibility +
                 ", wind=" + wind +
-                ", geometry=" + geometry +
                 '}';
     }
 

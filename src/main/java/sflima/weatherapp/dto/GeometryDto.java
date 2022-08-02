@@ -24,4 +24,13 @@ public class GeometryDto implements Serializable {
     @JsonProperty("coordinates")
     private  List<Float> coordinates;
     private  String type;
+
+
+    @Override
+    public String toString() {
+        return "GeometryDto{" +
+                "coordinates=" + coordinates +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }

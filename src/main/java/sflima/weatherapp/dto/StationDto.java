@@ -32,4 +32,15 @@ public class StationDto implements Serializable {
     private  String name;
     @JsonProperty("type")
     private  String typeStation;
+
+    @Override
+    public String toString() {
+        return "StationDto{" +
+                "geometry=" + geometry +
+                ", icaoStation='" + icaoStation + '\'' +
+                ", location='" + location + '\'' +
+                ", name='" + name + '\'' +
+                ", typeStation='" + typeStation + '\'' +
+                '}';
+    }
 }

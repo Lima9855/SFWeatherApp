@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 
@@ -17,8 +18,9 @@ import javax.persistence.Embeddable;
 @NoArgsConstructor
 @Embeddable
 public class Cloud {
-
+    @Column(name = "code_cloud")
     private String code;
+    @Column(name = "text_cloud")
     private String text;
 
     @Override

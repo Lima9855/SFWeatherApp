@@ -15,6 +15,7 @@ public class AirPortDataJpaService {
         this.airportDataRepository = airportDataRepository;
     }
 
+
     public List<AirPortData> getAirports(){
         return airportDataRepository.findAll();
     }
@@ -23,7 +24,10 @@ public class AirPortDataJpaService {
         return airportDataRepository.getById(id);
     }
 
-    public AirPortData saveAirport(AirPortData airPortData){
+    public AirPortData saveAirportData(AirPortData airPortData){
+        if(airPortData.equals(null)){
+           throw new RuntimeException(" null data");
+        }
         return airportDataRepository.save(airPortData);
     }
 }
