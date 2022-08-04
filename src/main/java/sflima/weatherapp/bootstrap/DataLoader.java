@@ -10,7 +10,6 @@ import sflima.weatherapp.model.airport.Airport;
 import sflima.weatherapp.model.airstationfindall.AirStationAll;
 import sflima.weatherapp.services.apiservice.AirPortApiService;
 import sflima.weatherapp.services.apiservice.AirStationApiService;
-import sflima.weatherapp.services.jpaservice.AirPortDataJpaService;
 import sflima.weatherapp.services.jpaservice.AirPortJpaService;
 import sflima.weatherapp.services.jpaservice.AirStationAllJpaService;
 
@@ -45,12 +44,12 @@ public class DataLoader implements CommandLineRunner {
     private void loadData() {
 
 
-        AirPortDto d1 = airportApiService.getAirport("metar/EDDC/decoded"); // get request working  for dto objects, everything works
-        AirPortDto d2 = airportApiService.getAirport("metar/EPLL/decoded");
-        AirPortDto d3 = airportApiService.getAirport("metar/EPDG/decoded"); // null data, need to filter null somehow or not but dont store it if null
-        AirPortDto d4 = airportApiService.getAirport("metar/EDDB/decoded");
-        AirPortDto d5 = airportApiService.getAirport("metar/EDDC/decoded");
-        AirPortDto d6 = airportApiService.getAirport("metar/EPWR/decoded");
+        AirPortDto d1 = airportApiService.getAirport("EDDC/decoded");
+        AirPortDto d2 = airportApiService.getAirport("EPLL/decoded");
+        AirPortDto d3 = airportApiService.getAirport("EPDG/decoded");
+        AirPortDto d4 = airportApiService.getAirport("EDDB/decoded");
+        AirPortDto d5 = airportApiService.getAirport("EDDC/decoded");
+        AirPortDto d6 = airportApiService.getAirport("EPWR/decoded");
         logger.info("lotnisko icao " + d1.toString());
         logger.info("lotnisko icao " + d2.toString());
         logger.info("lotnisko icao " + d3.toString());

@@ -16,7 +16,7 @@ public class AirPortApiService {
     private final WebClient webClient;
 
     public AirPortApiService(WebClient.Builder builder) {
-        webClient= builder.baseUrl("https://api.checkwx.com/").build();
+        webClient= builder.baseUrl("https://api.checkwx.com/metar/").build();
     }
 
     public AirPortDto getAirport(String uri){

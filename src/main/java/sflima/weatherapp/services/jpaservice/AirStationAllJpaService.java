@@ -14,18 +14,6 @@ public class AirStationAllJpaService {
         this.airStationRepository = airStationRepository;
     }
 
-    public List<AirStationAll> getAirStationAll(){
-        return airStationRepository.findAll();
-    }
-
-    public AirStationAll getAirStationAllByID(Long id){
-        return airStationRepository.getById(id);
-    }
-
-    public AirStationAll saveAirStationAll(AirStationAll airStationAll){
-        return airStationRepository.save(airStationAll);
-    }
-
     public List<AirStationAll> saveAll(List<AirStationAll> airStationAllList){
         return airStationRepository.saveAll(airStationAllList);
     }
