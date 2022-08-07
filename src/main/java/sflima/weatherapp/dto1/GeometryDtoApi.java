@@ -1,4 +1,4 @@
-package sflima.weatherapp.dto;
+package sflima.weatherapp.dto1;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -9,27 +9,28 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "celsius",
-        "fahrenheit"
+        "coordinates",
+        "type"
 })
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class DewpointDto implements Serializable {
-    @JsonProperty("celsius")
-    private  Integer celsiusDewpoint;
-    @JsonProperty("fahrenheit")
-    private  Integer fahrenheitDewpoint;
+public class GeometryDtoApi implements Serializable {
+
+    @JsonProperty("coordinates")
+    private  List<Float> coordinates;
+    private  String type;
+
 
     @Override
     public String toString() {
-        return "DewpointDto{" +
-                "celsiusDewpoint=" + celsiusDewpoint +
-                ", fahrenheitDewpoint=" + fahrenheitDewpoint +
+        return "GeometryDto{" +
+                "coordinates=" + coordinates +
+                ", type='" + type + '\'' +
                 '}';
     }
 }

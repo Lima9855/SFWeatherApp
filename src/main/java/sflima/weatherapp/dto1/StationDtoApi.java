@@ -1,4 +1,4 @@
-package sflima.weatherapp.dto;
+package sflima.weatherapp.dto1;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import sflima.weatherapp.model.airport.Geometry;
 
 import java.io.Serializable;
 
@@ -23,9 +22,9 @@ import java.io.Serializable;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class StationDto implements Serializable {
+public class StationDtoApi implements Serializable {
 
-    private GeometryDto geometry;
+    private GeometryDtoApi geometry;
     @JsonProperty("icao")
     private String icaoStation;
     private  String location;

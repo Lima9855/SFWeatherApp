@@ -1,4 +1,4 @@
-package sflima.weatherapp.dto;
+package sflima.weatherapp.dto1;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -9,20 +9,18 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
-
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "celsius",
-        "fahrenheit"
+        "feet",
+        "meters"
 })
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class TemperatureDto implements Serializable {
-    @JsonProperty("celsius")
-    private  Integer celsiusTemperature;
-    @JsonProperty("fahrenheit")
-    private  Integer fahrenheitTemperature;
+public class ElevationDtoApi implements Serializable {
+    private  Integer feet;
+    @JsonProperty("meters")
+    private  Integer metersElevation;
 }

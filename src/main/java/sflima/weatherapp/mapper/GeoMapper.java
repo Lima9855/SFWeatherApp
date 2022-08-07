@@ -2,7 +2,7 @@ package sflima.weatherapp.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import sflima.weatherapp.dto.GeometryDto;
+import sflima.weatherapp.dto1.GeometryDtoApi;
 import sflima.weatherapp.model.airport.Geometry;
 
 @Mapper(componentModel = "spring")
@@ -10,5 +10,5 @@ public interface GeoMapper {
     //converting list of floats coordinatesdto to String coordinates entity
     @Mapping(target = "coordinateX", expression = "java(dto.getCoordinates().get(0))")
     @Mapping(target = "coordinateY", expression = "java(dto.getCoordinates().get(1))")
-    public Geometry geoDtoToGeoEntity(GeometryDto dto);
+    public Geometry geoDtoToGeoEntity(GeometryDtoApi dto);
 }

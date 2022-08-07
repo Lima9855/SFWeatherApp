@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import sflima.weatherapp.dto.AirPortDto;
+import sflima.weatherapp.dto1.AirPortDtoApi;
 import sflima.weatherapp.mapper.AirPortMapper;
 import sflima.weatherapp.model.airport.Airport;
 import sflima.weatherapp.model.airstationfindall.AirStationAll;
@@ -15,7 +15,7 @@ import sflima.weatherapp.services.jpaservice.AirStationAllJpaService;
 
 import java.util.List;
 
-@Component
+//@Component
 public class DataLoader implements CommandLineRunner {
 
     Logger logger = LoggerFactory.getLogger(DataLoader.class);
@@ -38,18 +38,18 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        loadData();
+        //loadData();
     }
 
     private void loadData() {
 
 
-        AirPortDto d1 = airportApiService.getAirport("EDDC/decoded");
-        AirPortDto d2 = airportApiService.getAirport("EPLL/decoded");
-        AirPortDto d3 = airportApiService.getAirport("EPDG/decoded");
-        AirPortDto d4 = airportApiService.getAirport("EDDB/decoded");
-        AirPortDto d5 = airportApiService.getAirport("EDDC/decoded");
-        AirPortDto d6 = airportApiService.getAirport("EPWR/decoded");
+        AirPortDtoApi d1 = airportApiService.getAirport("EDDC/decoded");
+        AirPortDtoApi d2 = airportApiService.getAirport("EPLL/decoded");
+        AirPortDtoApi d3 = airportApiService.getAirport("EPDG/decoded");
+        AirPortDtoApi d4 = airportApiService.getAirport("EDDB/decoded");
+        AirPortDtoApi d5 = airportApiService.getAirport("EDDC/decoded");
+        AirPortDtoApi d6 = airportApiService.getAirport("EPWR/decoded");
         logger.info("lotnisko icao " + d1.toString());
         logger.info("lotnisko icao " + d2.toString());
         logger.info("lotnisko icao " + d3.toString());

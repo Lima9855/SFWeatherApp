@@ -1,4 +1,4 @@
-package sflima.weatherapp.dto;
+package sflima.weatherapp.dto1;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -32,29 +32,29 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AirPortDataDto implements Serializable {
+public class AirPortDataDtoApi implements Serializable {
 
 
-    private  BarometerDto barometer;
-    private  List<CloudDto> clouds = null;
-    private  DewpointDto dewpoint;
-    private  ElevationDto elevation;
+    private BarometerDtoApi barometer;
+    private  List<CloudDtoApi> clouds = null;
+    private DewpointDtoApi dewpoint;
+    private ElevationDtoApi elevation;
     @JsonProperty("flight_category")
     private  String flightCategory;
-    private  HumidityDto humidity;
+    private HumidityDtoApi humidity;
     private  String icao;
     private  String observed;
     @JsonProperty("raw_text")
     private  String rawText;
-    private  StationDto station;
-    private  TemperatureDto temperature;
-    private  VisibilityDto visibility;
-    private  WindDto wind;
+    private StationDtoApi station;
+    private TemperatureDtoApi temperature;
+    private VisibilityDtoApi visibility;
+    private WindDtoApi wind;
 
-    public AirPortDataDto(BarometerDto barometer, DewpointDto dewpoint,
-                          ElevationDto elevation, String flightCategory, HumidityDto humidity,
-                          String icao, String observed, String rawText, StationDto station,
-                          TemperatureDto temperature, VisibilityDto visibility, WindDto wind) {
+    public AirPortDataDtoApi(BarometerDtoApi barometer, DewpointDtoApi dewpoint,
+                             ElevationDtoApi elevation, String flightCategory, HumidityDtoApi humidity,
+                             String icao, String observed, String rawText, StationDtoApi station,
+                             TemperatureDtoApi temperature, VisibilityDtoApi visibility, WindDtoApi wind) {
         this.barometer = barometer;
         this.dewpoint = dewpoint;
         this.elevation = elevation;

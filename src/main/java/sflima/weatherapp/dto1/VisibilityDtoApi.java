@@ -1,4 +1,4 @@
-package sflima.weatherapp.dto;
+package sflima.weatherapp.dto1;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,7 +21,7 @@ import java.io.Serializable;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class VisibilityDto implements Serializable {
+public class VisibilityDtoApi implements Serializable {
     @JsonProperty("meters")
     private  String metersVisibility;
     @JsonProperty("meters_float")

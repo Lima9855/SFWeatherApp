@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import sflima.weatherapp.dto.AirPortDataDto;
 import sflima.weatherapp.model.BaseEntity;
 
 import javax.persistence.CascadeType;

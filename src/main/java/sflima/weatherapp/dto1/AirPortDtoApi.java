@@ -1,4 +1,4 @@
-package sflima.weatherapp.dto;
+package sflima.weatherapp.dto1;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -6,26 +6,30 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import sflima.weatherapp.model.BaseEntity;
 
-import java.io.Serializable;
+import java.util.List;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "code",
-        "text"
+    "results",
+    "data"
 })
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CloudDto implements Serializable {
-    private  String code;
-    private  String text;
+public class AirPortDtoApi  {
+
+    private Integer results;
+    private List<AirPortDataDtoApi> data = null;
+
 
     @Override
     public String toString() {
-        return "CloudDto{" +
-                "code='" + code + '\'' +
-                ", text='" + text + '\'' +
+        return "Airport{" +
+                "data=" + data +
                 '}';
     }
 }

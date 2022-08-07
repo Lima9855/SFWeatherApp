@@ -2,7 +2,7 @@ package sflima.weatherapp.controllers;
 
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
-import sflima.weatherapp.dto.AirPortDto;
+import sflima.weatherapp.dto1.AirPortDtoApi;
 import sflima.weatherapp.mapper.AirPortMapper;
 import sflima.weatherapp.model.airport.Airport;
 import sflima.weatherapp.services.apiservice.AirPortApiService;
@@ -23,8 +23,8 @@ public class AirPortController {
 
     @PutMapping("/putAirport")
     public Airport createAirport (String uri){
-        AirPortDto airPortDto = airPortApiService.getAirport(uri);
-        Airport airport = airPortMapper.dtoToEntity(airPortDto);
+        AirPortDtoApi airPortDtoApi = airPortApiService.getAirport(uri);
+        Airport airport = airPortMapper.dtoToEntity(airPortDtoApi);
 
         return airPortJpaService.saveAirPort(airport);
     }

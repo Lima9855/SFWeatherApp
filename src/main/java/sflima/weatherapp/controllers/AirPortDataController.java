@@ -2,6 +2,7 @@ package sflima.weatherapp.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import sflima.weatherapp.mapper.AirPortMapper;
 import sflima.weatherapp.model.airport.AirPortData;
 import sflima.weatherapp.services.AirPortDataService;
 
@@ -12,9 +13,11 @@ import java.util.Locale;
 public class AirPortDataController {
 
     private final AirPortDataService airPortDataService;
+    private final AirPortMapper mapper;
 
-    public AirPortDataController(AirPortDataService airPortDataService) {
+    public AirPortDataController(AirPortDataService airPortDataService, AirPortMapper mapper) {
         this.airPortDataService = airPortDataService;
+        this.mapper = mapper;
     }
 
     @GetMapping("/getAll")
