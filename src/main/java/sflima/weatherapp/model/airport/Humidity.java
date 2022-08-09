@@ -11,10 +11,6 @@ import lombok.Setter;
 
 import javax.persistence.Embeddable;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "percent"
-})
 
 @Getter
 @Setter

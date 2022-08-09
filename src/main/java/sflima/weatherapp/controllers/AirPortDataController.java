@@ -1,10 +1,12 @@
 package sflima.weatherapp.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import sflima.weatherapp.mapper.AirPortMapper;
-import sflima.weatherapp.model.airport.AirPortData;
-import sflima.weatherapp.services.AirPortDataService;
+import sflima.weatherapp.dto.airport.AirPortDataDto;
+import sflima.weatherapp.mapper.AirPortDataMapper;
+import sflima.weatherapp.services.airportdataservices.AirPortDataService;
 
 import java.util.List;
 import java.util.Locale;
@@ -13,31 +15,41 @@ import java.util.Locale;
 public class AirPortDataController {
 
     private final AirPortDataService airPortDataService;
-    private final AirPortMapper mapper;
+    private final AirPortDataMapper mapper;
 
-    public AirPortDataController(AirPortDataService airPortDataService, AirPortMapper mapper) {
+    public AirPortDataController(AirPortDataService airPortDataService, AirPortDataMapper mapper) {
         this.airPortDataService = airPortDataService;
         this.mapper = mapper;
     }
 
     @GetMapping("/getAll")
-    public List<AirPortData> getAll(){
-        return airPortDataService.getAirports();
+    public ResponseEntity<List<AirPortDataDto>> getAll(){
+        return  ResponseEntity
+                .status(HttpStatus.OK)
+                .body(mapper.entitiesToDtos(airPortDataService.getAirports()));
     }
     @GetMapping("/getByIcao")
-    public List<AirPortData> getByIcao(String icao){
-        String icaoCode = String.valueOf(new StringBuilder(icao.toUpperCase(Locale.ROOT)));
-        return airPortDataService.getListOfAirPortDataByIcao(icaoCode);
+    public ResponseEntity<List<AirPortDataDto>> getByIcao(String icao){
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(mapper.entitiesToDtos(airPortDataService.getListOfAirPortDataByIcao(icao.toUpperCase(Locale.ROOT))));
     }
 
     @GetMapping("/getByStationName")
-    public List<AirPortData> getByLocation(String name){
-        return airPortDataService.getListOfAirPortDataByStationName(name);
+    public ResponseEntity<List<AirPortDataDto>> getByLocation(String name){
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(mapper.entitiesToDtos(airPortDataService.getListOfAirPortDataByStationName(name)));
     }
 
     @GetMapping("/getByStationLocation")
-    public List<AirPortData> getByStationLocation(String location){
+    public ResponseEntity<List<AirPortDataDto>> getByStationLocation(String location){
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(mapper.entitiesToDtos(airPortDataService.getListOfAirPortDataByLocation(location)));
+    }
 
-        return airPortDataService.getListOfAirPortDataByLocation(location);
+    @GetMapping("/getByObservationDate")
+    public ResponseEntity <List<AirPortDataDto>> getByObservationDate(String date){
+        return ResponseEntity.status(HttpStatus.OK)
+                .body((mapper.entitiesToDtos(airPortDataService.getListOfAirPortDataByObserved(date))));
     }
 }

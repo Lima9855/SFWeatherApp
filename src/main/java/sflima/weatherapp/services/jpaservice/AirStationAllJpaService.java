@@ -1,20 +1,20 @@
 package sflima.weatherapp.services.jpaservice;
 
 import org.springframework.stereotype.Service;
-import sflima.weatherapp.model.airstationfindall.AirStationAll;
-import sflima.weatherapp.repository.AirStationRepository;
+import sflima.weatherapp.model.airstation.airstationall.AirStationAll;
+import sflima.weatherapp.repository.AirStationAllRepository;
 
 import java.util.List;
 
 @Service
 public class AirStationAllJpaService {
-    private final AirStationRepository airStationRepository;
+    private final AirStationAllRepository airStationAllRepository;
 
-    public AirStationAllJpaService(AirStationRepository airStationRepository) {
-        this.airStationRepository = airStationRepository;
+    public AirStationAllJpaService(AirStationAllRepository airStationAllRepository) {
+        this.airStationAllRepository = airStationAllRepository;
     }
 
     public List<AirStationAll> saveAll(List<AirStationAll> airStationAllList){
-        return airStationRepository.saveAll(airStationAllList);
+        return airStationAllRepository.saveAll(airStationAllList);
     }
 }

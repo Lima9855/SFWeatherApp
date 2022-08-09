@@ -2,7 +2,7 @@ package sflima.weatherapp.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import sflima.weatherapp.dto1.GeometryDtoApi;
+import sflima.weatherapp.dtoapi.airport.GeometryDtoApi;
 import sflima.weatherapp.model.airport.Geometry;
 
 @Mapper(componentModel = "spring")

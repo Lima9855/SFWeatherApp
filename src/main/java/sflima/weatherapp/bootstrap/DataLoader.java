@@ -3,11 +3,10 @@ package sflima.weatherapp.bootstrap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
-import sflima.weatherapp.dto1.AirPortDtoApi;
+import sflima.weatherapp.dtoapi.airport.AirPortDtoApi;
 import sflima.weatherapp.mapper.AirPortMapper;
 import sflima.weatherapp.model.airport.Airport;
-import sflima.weatherapp.model.airstationfindall.AirStationAll;
+import sflima.weatherapp.model.airstation.airstationall.AirStationAll;
 import sflima.weatherapp.services.apiservice.AirPortApiService;
 import sflima.weatherapp.services.apiservice.AirStationApiService;
 import sflima.weatherapp.services.jpaservice.AirPortJpaService;
@@ -76,11 +75,9 @@ public class DataLoader implements CommandLineRunner {
 
 
 
-        List<AirStationAll> a1 = airStationApiService.getAirStaions();
 
-        //a1.forEach(o -> logger.info("Airstation " + o ));
 
-        airStationAllJpaService.saveAll(a1);
+
 
     }
 }

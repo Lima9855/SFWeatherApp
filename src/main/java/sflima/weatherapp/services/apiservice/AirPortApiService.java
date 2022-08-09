@@ -3,7 +3,7 @@ package sflima.weatherapp.services.apiservice;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-import sflima.weatherapp.dto1.AirPortDtoApi;
+import sflima.weatherapp.dtoapi.airport.AirPortDtoApi;
 
 
 // zostawić to tuaj czy do pakietu z serwisami? Dopytać się
