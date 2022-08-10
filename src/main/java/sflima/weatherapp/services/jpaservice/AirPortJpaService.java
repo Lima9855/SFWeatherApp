@@ -19,11 +19,13 @@ public class AirPortJpaService {
         return airPortRepository.findAll();
     }
 
-    public Airport getAirportByID(Long id){
-        return airPortRepository.getById(id);
-    }
-
     public Airport saveAirPort (Airport airport){
         return airPortRepository.save(airport);
     }
+
+    /*public Airport updateAirPort(Airport airport){
+        List<Airport> airports = airPortRepository.findAll();
+        if(airports.stream().anyMatch(airport1 -> airport1.getData().get(0) == airport.getData().get(0)))
+        return airPortRepository.
+    }*/
 }

@@ -39,7 +39,8 @@ public class AirPortController {
         return ResponseEntity.status(HttpStatus.OK)
                 .body("airport created");
     }
-    @PutMapping("/updateExistingAirPorts")
+    @PutMapping("/updateExistingAirPorts") //to add: statement that search for existing record in data base
+                                            //that is the same as one that comes from request
     public ResponseEntity<?> updateAirports(){
         List<String> icaoCodes = airPortDataService.getAirports().stream().map(airport -> airport.getIcao()).collect(Collectors.toList());
         for(String icao: icaoCodes){
