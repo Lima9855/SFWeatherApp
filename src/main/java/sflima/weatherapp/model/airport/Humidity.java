@@ -11,10 +11,6 @@ import lombok.Setter;
 
 import javax.persistence.Embeddable;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "percent"
-})
 
 @Getter
 @Setter
@@ -23,7 +19,6 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Humidity {
 
-    @JsonProperty("percent")
     private Integer percent;
 
 }

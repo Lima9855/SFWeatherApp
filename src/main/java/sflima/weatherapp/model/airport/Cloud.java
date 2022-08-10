@@ -2,20 +2,15 @@
 package sflima.weatherapp.model.airport;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "code",
-    "text"
-})
 
 @Getter
 @Setter
@@ -23,10 +18,16 @@ import javax.persistence.Embeddable;
 @NoArgsConstructor
 @Embeddable
 public class Cloud {
-
-    @JsonProperty("code")
+    @Column(name = "code_cloud")
     private String code;
-    @JsonProperty("text")
+    @Column(name = "text_cloud")
     private String text;
 
+    @Override
+    public String toString() {
+        return "Cloud{" +
+                "code='" + code + '\'' +
+                ", text='" + text + '\'' +
+                '}';
+    }
 }
