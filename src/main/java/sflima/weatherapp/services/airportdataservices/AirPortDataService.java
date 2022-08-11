@@ -5,6 +5,7 @@ import sflima.weatherapp.model.airport.AirPortData;
 import sflima.weatherapp.repository.AirPortDataRepository;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -43,4 +44,9 @@ public class AirPortDataService {
     public List<AirPortData> getListOfAirPortDataByObserved(String observed){
         return airportDataRepository.findAll().stream().filter(airPortData -> airPortData.getObserved().contains(observed) ).collect(Collectors.toList());
     }
+    public Set<String> getSetOfIcaoCodes(){
+        return airportDataRepository.findAll().stream().map(airport -> airport.getIcao()).collect(Collectors.toSet());
+    }
+
+
 }

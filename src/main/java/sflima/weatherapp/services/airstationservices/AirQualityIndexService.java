@@ -11,4 +11,7 @@ public class AirQualityIndexService {
     public AirQualityIndexService(AirQualityIndexRepository airQualityIndexRepository) {
         this.airQualityIndexRepository = airQualityIndexRepository;
     }
+
+
+
 }

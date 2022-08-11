@@ -5,6 +5,8 @@ import sflima.weatherapp.model.airstation.airstationall.AirStationAll;
 import sflima.weatherapp.repository.AirStationAllRepository;
 
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class AirStationAllService {
@@ -24,5 +26,9 @@ public class AirStationAllService {
 
     public List<AirStationAll> getAirStationAllByCityName (String name){
         return airStationAllRepository.findByCity_Name(name);
+    }
+
+    public Set<Integer> getAllIcaoCodes(){
+        return airStationAllRepository.findAll().stream().map(AirStationAll::getStationIdentyficator).collect(Collectors.toSet());
     }
 }

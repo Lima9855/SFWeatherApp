@@ -6,11 +6,13 @@ import org.springframework.stereotype.Repository;
 import sflima.weatherapp.model.airstation.airstationall.AirStationAll;
 
 import java.util.List;
+import java.util.Set;
 
 @Repository
 public interface AirStationAllRepository extends JpaRepository<AirStationAll, Long> {
 
     List<AirStationAll> findByCity_Name(String name);
+
 
 
 }

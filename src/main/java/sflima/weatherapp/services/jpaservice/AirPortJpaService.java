@@ -1,15 +1,19 @@
 package sflima.weatherapp.services.jpaservice;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import sflima.weatherapp.model.airport.AirPortData;
 import sflima.weatherapp.model.airport.Airport;
 import sflima.weatherapp.repository.AirPortRepository;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class AirPortJpaService {
     private final AirPortRepository airPortRepository;
+    Logger logger = LoggerFactory.getLogger(AirPortJpaService.class);
 
     public AirPortJpaService(AirPortRepository airPortRepository) {
         this.airPortRepository = airPortRepository;
@@ -23,9 +27,17 @@ public class AirPortJpaService {
         return airPortRepository.save(airport);
     }
 
-    /*public Airport updateAirPort(Airport airport){
+    public void updateAirPort(Airport airport, boolean flag){
+        if(flag){
+            airPortRepository.save(airport);
+        }
+        // throw new app exception that will tell this
+        else logger.info("There is already record in database for " + airport.getData().get(0).getStation().getName() + " observed: "+ '\n' + airport.getData().get(0).getObserved());
+    }
+
+    public boolean updateAirPortFlag(Airport airport){
         List<Airport> airports = airPortRepository.findAll();
-        if(airports.stream().anyMatch(airport1 -> airport1.getData().get(0) == airport.getData().get(0)))
-        return airPortRepository.
-    }*/
+        return airports.stream().anyMatch(airPortRepo -> ( airPortRepo.getData().get(0).getObserved().equals(airport.getData().get(0).getObserved()) &&
+                         airPortRepo.getData().get(0).getIcao().equals(airport.getData().get(0).getIcao()) ));
+    }
 }
