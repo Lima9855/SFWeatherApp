@@ -45,9 +45,8 @@ public class AirPortController {
         for(String icao: icaoCodes){
             AirPortDtoApi airPortDtoApi = airPortApiService.getAirport(icao + "/decoded");
             Airport airport = airPortMapper.dtoToEntity(airPortDtoApi);
-            boolean flag = airPortJpaService.updateAirPortFlag(airport);
-            System.out.println(flag);
-            //airPortJpaService.updateAirPort(airport,flag);
+            boolean flag = airPortDataService.existsAirPortDataByIcaoAndObserved(airport.getAirPortData().getIcao(),airport.getAirPortData().getObserved());
+            airPortJpaService.updateAirPort(airport,flag);
 
         }
         return ResponseEntity.status(HttpStatus.OK)

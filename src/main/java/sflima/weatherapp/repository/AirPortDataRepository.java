@@ -14,6 +14,8 @@ public interface AirPortDataRepository extends JpaRepository<AirPortData, Long> 
 
     List<AirPortData> findByTemperature_CelsiusTemperature(Integer temp);
 
+    boolean existsAirPortDataByIcaoAndObserved(String icao, String observed);
+
     //List<AirPortData> findByStation_Name (String name);
 
     //List<AirPortData> findByStation_Location (String location);

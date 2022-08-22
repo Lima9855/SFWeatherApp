@@ -28,7 +28,7 @@ public class AirStationAllService {
         return airStationAllRepository.findByCity_Name(name);
     }
 
-    public Set<Integer> getAllIcaoCodes(){
-        return airStationAllRepository.findAll().stream().map(AirStationAll::getStationIdentyficator).collect(Collectors.toSet());
+    public boolean existsAirStationAllByAddressStreetAndStationIdentyficatorAndStationName (String addressStreet, Integer stationIdentyficator, String stationName){
+        return airStationAllRepository.existsAirStationAllByAddressStreetAndStationIdentyficatorAndStationName(addressStreet,stationIdentyficator,stationName);
     }
 }

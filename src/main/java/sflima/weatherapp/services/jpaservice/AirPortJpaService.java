@@ -28,16 +28,11 @@ public class AirPortJpaService {
     }
 
     public void updateAirPort(Airport airport, boolean flag){
-        if(flag){
+        if(!flag){
             airPortRepository.save(airport);
         }
         // throw new app exception that will tell this
         else logger.info("There is already record in database for " + airport.getData().get(0).getStation().getName() + " observed: "+ '\n' + airport.getData().get(0).getObserved());
     }
 
-    public boolean updateAirPortFlag(Airport airport){
-        List<Airport> airports = airPortRepository.findAll();
-        return airports.stream().anyMatch(airPortRepo -> ( airPortRepo.getData().get(0).getObserved().equals(airport.getData().get(0).getObserved()) &&
-                         airPortRepo.getData().get(0).getIcao().equals(airport.getData().get(0).getIcao()) ));
-    }
 }

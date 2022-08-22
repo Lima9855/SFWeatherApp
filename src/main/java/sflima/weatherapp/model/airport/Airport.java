@@ -21,6 +21,10 @@ public class Airport extends BaseEntity {
     @OneToMany(cascade = CascadeType.ALL)
     private List<AirPortData> data = null;
 
+    public AirPortData getAirPortData() {
+        return data.get(0);
+    }
+
     @Override
     public String toString() {
         return "Airport{" +

@@ -48,5 +48,9 @@ public class AirPortDataService {
         return airportDataRepository.findAll().stream().map(airport -> airport.getIcao()).collect(Collectors.toSet());
     }
 
+    public boolean existsAirPortDataByIcaoAndObserved (String icao, String observed){
+        return airportDataRepository.existsAirPortDataByIcaoAndObserved(icao,observed);
+    }
+
 
 }

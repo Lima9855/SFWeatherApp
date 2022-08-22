@@ -13,6 +13,8 @@ public interface AirStationAllRepository extends JpaRepository<AirStationAll, Lo
 
     List<AirStationAll> findByCity_Name(String name);
 
+    boolean existsAirStationAllsByAddressStreetAndStationIdentyficatorAndStationName(String addressStreet, Integer stationIdentyficator, String stationName);
 
+    boolean existsAirStationAllByAddressStreetAndStationIdentyficatorAndStationName(String addressStreet, Integer stationIdentyficator, String stationName);
 
 }
