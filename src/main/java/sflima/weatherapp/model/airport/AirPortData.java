@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import sflima.weatherapp.model.BaseEntity;
 
 import javax.persistence.*;
 
@@ -16,8 +15,12 @@ import javax.persistence.*;
 @NoArgsConstructor
 
 @Table(name = "Data")
-public class AirPortData extends BaseEntity {
-
+public class AirPortData{
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @SequenceGenerator(name = "sequenceGenerator")
+    @Column(name = "id")
+    private Long id;
 
     @Embedded
     private Barometer barometer;

@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 @AllArgsConstructor
 @Getter
-public class ElevationDto implements Serializable {
+public class ElevationDto {
     private final Integer feet;
     private final Integer metersElevation;
 }

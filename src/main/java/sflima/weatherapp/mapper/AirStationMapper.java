@@ -1,18 +1,16 @@
 package sflima.weatherapp.mapper;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import sflima.weatherapp.dto.airstation.airstationall.AirStationAllDto;
-import sflima.weatherapp.model.airstation.airstationall.AirStationAll;
+import sflima.weatherapp.dto.airstation.airstationall.AirStationDto;
+import sflima.weatherapp.model.airstation.airstationall.AirStation;
 
 import java.util.List;
 @Mapper(componentModel = "spring")
 public interface AirStationMapper {
 
+    List<AirStation> dtosToEntities (List<AirStationDto> dtos);
 
-    List<AirStationAll> dtosToEntities (List<AirStationAllDto> dtos);
+    AirStation dtoToEntity(AirStationDto dto);
 
-    AirStationAll dtoToEntity(AirStationAllDto dto);
-
-    AirStationAllDto entityToDto (AirStationAll entity);
+    AirStationDto entityToDto (AirStation entity);
 }

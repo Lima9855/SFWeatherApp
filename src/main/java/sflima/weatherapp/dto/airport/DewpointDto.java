@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 @AllArgsConstructor
 @Getter
-public class DewpointDto implements Serializable {
+public class DewpointDto {
     private final Integer celsiusDewpoint;
     private final Integer fahrenheitDewpoint;
 }

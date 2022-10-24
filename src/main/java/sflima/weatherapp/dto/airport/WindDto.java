@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 @AllArgsConstructor
 @Getter
-public class WindDto implements Serializable {
+public class WindDto {
     private final Integer degrees;
     private final Integer speedKph;
     private final Integer speedKts;

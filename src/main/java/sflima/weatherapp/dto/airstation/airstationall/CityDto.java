@@ -18,12 +18,10 @@ import java.io.Serializable;
 })
 
 @Getter
-@Setter
 @AllArgsConstructor
-@NoArgsConstructor
-public class CityDto implements Serializable {
+public class CityDto {
     @JsonProperty("id")
-    private  Integer id_station;
-    private  String name;
-    private  CommuneDto commune;
+    private final Integer id_station;
+    private final String name;
+    private final CommuneDto commune;
 }

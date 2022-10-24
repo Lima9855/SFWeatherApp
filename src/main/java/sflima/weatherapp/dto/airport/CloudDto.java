@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 @AllArgsConstructor
 @Getter
-public class CloudDto implements Serializable {
+public class CloudDto {
     private final String code;
     private final String text;
 }
