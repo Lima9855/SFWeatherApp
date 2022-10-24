@@ -17,11 +17,9 @@ import java.io.Serializable;
 })
 
 @Getter
-@Setter
 @AllArgsConstructor
-@NoArgsConstructor
-public class CommuneDto implements Serializable {
-    private  String communeName;
-    private  String districtName;
-    private  String provinceName;
+public class CommuneDto {
+    private final String communeName;
+    private final String districtName;
+    private final String provinceName;
 }

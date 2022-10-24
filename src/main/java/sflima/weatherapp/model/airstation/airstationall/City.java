@@ -17,9 +17,9 @@ import javax.persistence.Embedded;
 @Embeddable
 public class City {
 
-    public Integer id_station;
-    public String name;
+    private Integer id_station;
+    private String name;
     @Embedded
-    public Commune commune;
+    private Commune commune;
 
 }

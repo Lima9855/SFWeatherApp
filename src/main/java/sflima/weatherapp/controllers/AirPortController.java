@@ -2,53 +2,53 @@ package sflima.weatherapp.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
-import sflima.weatherapp.dtoapi.airport.AirPortDtoApi;
+import org.springframework.web.bind.annotation.*;
+import sflima.weatherapp.dto.airportdata.AirPortDtoApi;
 import sflima.weatherapp.mapper.AirPortMapper;
 import sflima.weatherapp.model.airport.Airport;
-import sflima.weatherapp.services.airportdataservices.AirPortDataService;
+import sflima.weatherapp.services.airportservices.AirPortDataService;
 import sflima.weatherapp.services.apiservice.AirPortApiService;
-import sflima.weatherapp.services.jpaservice.AirPortJpaService;
+import sflima.weatherapp.services.airportservices.AirPortService;
 
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Set;
 
 @RestController
+@RequestMapping("/api/airport")
 public class AirPortController {
 
     private final AirPortApiService airPortApiService;
-    private final AirPortJpaService airPortJpaService;
+    private final AirPortService airPortService;
     private final AirPortMapper airPortMapper;
     private final AirPortDataService airPortDataService;
 
     public AirPortController(AirPortApiService airPortApiService,
                              AirPortDataService airPortDataService,
-                             AirPortJpaService airPortJpaService, AirPortMapper airPortMapper) {
+                             AirPortService airPortService, AirPortMapper airPortMapper) {
         this.airPortApiService = airPortApiService;
-        this.airPortJpaService = airPortJpaService;
+        this.airPortService = airPortService;
         this.airPortMapper = airPortMapper;
         this.airPortDataService = airPortDataService;
     }
 
-    @PutMapping("/putAirport")
+    @PostMapping ()
     public ResponseEntity<?> createAirport (String uri){
         AirPortDtoApi airPortDtoApi = airPortApiService.getAirport(uri);
         Airport airport = airPortMapper.dtoToEntity(airPortDtoApi);
-        airPortJpaService.saveAirPort(airport);
+        airPortService.saveAirPort(airport);
         return ResponseEntity.status(HttpStatus.OK)
                 .body("airport created");
     }
-    @PutMapping("/updateExistingAirPorts") //to add: statement that search for existing record in data base
-                                            //that is the same as one that comes from request
+    @PutMapping()
     public ResponseEntity<?> updateAirports(){
-        List<String> icaoCodes = airPortDataService.getAirports().stream().map(airport -> airport.getIcao()).collect(Collectors.toList());
+        Set<String> icaoCodes = airPortDataService.getSetOfIcaoCodes();
         for(String icao: icaoCodes){
             AirPortDtoApi airPortDtoApi = airPortApiService.getAirport(icao + "/decoded");
-            airPortJpaService.saveAirPort(airPortMapper.dtoToEntity(airPortDtoApi));
-        }
+            Airport airport = airPortMapper.dtoToEntity(airPortDtoApi);
+            boolean flag = airPortDataService.existsAirPortDataByIcaoAndObserved(airport.getAirPortData().getIcao(),airport.getAirPortData().getObserved());
+            airPortService.updateAirPort(airport,flag);
 
+        }
         return ResponseEntity.status(HttpStatus.OK)
-                .body("airports updated" + airPortJpaService.getAirports());
+                .body("airports updated");
     }
 }

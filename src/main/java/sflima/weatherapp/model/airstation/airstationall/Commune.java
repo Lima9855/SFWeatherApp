@@ -17,8 +17,8 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Commune {
 
-    public String communeName;
-    public String districtName;
-    public String provinceName;
+    private String communeName;
+    private String districtName;
+    private String provinceName;
 
 }

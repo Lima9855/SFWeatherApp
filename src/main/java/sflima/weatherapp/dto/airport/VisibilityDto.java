@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 @AllArgsConstructor
 @Getter
-public class VisibilityDto implements Serializable {
+public class VisibilityDto {
     private final String metersVisibility;
     private final Integer metersFloat;
     private final String miles;

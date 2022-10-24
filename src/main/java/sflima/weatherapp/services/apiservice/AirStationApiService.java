@@ -5,7 +5,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
-import sflima.weatherapp.dto.airstation.airstationall.AirStationAllDto;
+import sflima.weatherapp.dto.airstation.airstationall.AirStationDto;
 
 import java.util.List;
 
@@ -16,18 +16,20 @@ public class AirStationApiService {
     private final WebClient webClient;
 
     public AirStationApiService(WebClient.Builder builder) {
-        webClient= builder.baseUrl("https://api.gios.gov.pl/pjp-api/rest/station").build();
+        webClient = builder.baseUrl("https://api.gios.gov.pl/pjp-api/rest/station").build();
     }
 
-    public List<AirStationAllDto> getAirStations(){
-        Mono<List<AirStationAllDto>> response = webClient.get()
+    public List<AirStationDto> getAirStations() {
+        Mono<List<AirStationDto>> response = webClient.get()
                 .uri("/findAll")
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
-                .bodyToMono(new ParameterizedTypeReference<List<AirStationAllDto>>() {
+                .bodyToMono(new ParameterizedTypeReference<List<AirStationDto>>() {
                 });
-        List<AirStationAllDto> a1 = response.block();
+        List<AirStationDto> a1 = response.block();
 
         return a1;
     }
+
+
 }
