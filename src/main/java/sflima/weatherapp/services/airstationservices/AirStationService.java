@@ -3,12 +3,15 @@ package sflima.weatherapp.services.airstationservices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import sflima.weatherapp.errors.BadRequestAlertException;
 import sflima.weatherapp.model.airstation.airstationall.AirStation;
 import sflima.weatherapp.model.airstation.airstationdata.indexairquality.AirQualityIndex;
 import sflima.weatherapp.repository.AirStationRepository;
 import sflima.weatherapp.services.airportservices.AirPortService;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class AirStationService {
@@ -27,11 +30,11 @@ public class AirStationService {
         return airStationRepository.saveAll(airStationList);
     }
 
-    public AirStation getAirStationAllByID(Long id) {
-        return airStationRepository.getById(id);
+    public Optional<AirStation> findById(Long id){
+        return airStationRepository.findById(id);
     }
 
-    public List<AirStation> getAirStationAll() {
+    public List<AirStation> findAll() {
         return airStationRepository.findAll();
     }
 
@@ -44,12 +47,25 @@ public class AirStationService {
     }
 
 
-    public void updateAirStationAll(AirStation airStation, boolean flag) {
+    public void updateAirStation(AirStation airStation, boolean flag) {
         if (!flag) {
             airStationRepository.save(airStation);
         }
         // throw new app exception that will tell this
         else logger.info("There is already record in database for " + airStation.getStationName());
+    }
+    public AirStation updateById(AirStation airStation, Long id) {
+        if (airStation.getId() == null) {
+            throw new BadRequestAlertException("Invalid id", AirStation.class, "id null");
+        }
+        if (!Objects.equals(id, airStation.getId())) {
+            throw new BadRequestAlertException("Invalid ID", AirStation.class, "id invalid");
+        }
+        if (!airStationRepository.existsById(id)) {
+            throw new BadRequestAlertException("Entity not found", AirStation.class, "id not found");
+        }
+        logger.debug("Request to save Dimensions : {}", airStation);
+        return airStationRepository.save(airStation);
     }
 
 

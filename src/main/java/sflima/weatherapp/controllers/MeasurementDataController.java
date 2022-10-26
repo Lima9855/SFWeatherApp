@@ -9,6 +9,7 @@ import sflima.weatherapp.mapper.MeasurementDataMapper;
 import sflima.weatherapp.model.airstation.airstationdata.measurementdata.MeasurementData;
 import sflima.weatherapp.services.airstationservices.MeasurementDataService;
 import sflima.weatherapp.services.apiservice.AirStationDataApiService;
+import sflima.weatherapp.utils.EntityAlertUtil;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,7 +32,7 @@ public class MeasurementDataController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createMeasurementData(int id){
+    public ResponseEntity<?> createMeasurementData(final int id){
         MeasurementData createdMeasurementData = measurementDataService.save(
                 measurementDataMapper.dtoToEntity(airStationDataApiService.getMeasurementData(id)));
         MeasurementDataDto result = measurementDataMapper.entityToDto(createdMeasurementData);
@@ -51,6 +52,15 @@ public class MeasurementDataController {
     public ResponseEntity<?> getMeasurementData(@PathVariable Long id){
         Optional<MeasurementDataDto> result = measurementDataService.findById(id).map(measurementDataMapper::entityToDto);
         return ResponseUtil.wrapOrNotFound(result);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteMeasurementData(@PathVariable Long id){
+        measurementDataService.delete(id);
+        return ResponseEntity
+                .noContent()
+                .headers(EntityAlertUtil.createEntityDeletionAlert(MeasurementData.class, id.toString()))
+                .build();
     }
 
 }
