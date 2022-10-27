@@ -32,7 +32,7 @@ public class MeasurementDataController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createMeasurementData(final int id){
+    public ResponseEntity<?> createMeasurementData(final int id) {
         MeasurementData createdMeasurementData = measurementDataService.save(
                 measurementDataMapper.dtoToEntity(airStationDataApiService.getMeasurementData(id)));
         MeasurementDataDto result = measurementDataMapper.entityToDto(createdMeasurementData);
@@ -42,20 +42,20 @@ public class MeasurementDataController {
     }
 
     @GetMapping
-    public ResponseEntity<?> getAllMeasurementData(){
+    public ResponseEntity<?> getAllMeasurementData() {
         List<MeasurementDataDto> result = measurementDataService.findAll().stream().map(measurementDataMapper::entityToDto).collect(Collectors.toList());
         return ResponseEntity.ok()
                 .body(result);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getMeasurementData(@PathVariable Long id){
+    public ResponseEntity<?> getMeasurementData(@PathVariable Long id) {
         Optional<MeasurementDataDto> result = measurementDataService.findById(id).map(measurementDataMapper::entityToDto);
         return ResponseUtil.wrapOrNotFound(result);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteMeasurementData(@PathVariable Long id){
+    public ResponseEntity<Void> deleteMeasurementData(@PathVariable Long id) {
         measurementDataService.delete(id);
         return ResponseEntity
                 .noContent()

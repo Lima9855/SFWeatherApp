@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static sflima.weatherapp.utils.EntityAlertUtil.*;
+import static sflima.weatherapp.utils.EntityAlertUtil.createEntityDeletionAlert;
 
 @RestController
 @RequestMapping("/api/air_station")
@@ -26,39 +26,47 @@ public class AirStationController {
 
     public AirStationController(AirStationMapper mapper,
                                 AirStationApiService airStationApiService
-                                    , AirStationService airStationService) {
+            , AirStationService airStationService) {
         this.mapper = mapper;
         this.airStationApiService = airStationApiService;
         this.airStationService = airStationService;
     }
 
     @PostMapping()
-    public ResponseEntity<?> createListOfAirStations(){
+    public ResponseEntity<?> createListOfAirStations() {
         List<AirStationDto> airStaions = airStationApiService.getAirStations();
-        for(AirStationDto dto: airStaions){
+        for (AirStationDto dto : airStaions) {
             boolean flag = airStationService.existsAirStationAllByAddressStreetAndStationIdentyficatorAndStationName(dto.getAddressStreet()
-                    , dto.getStationIdentyficator(),dto.getStationName());
+                    , dto.getStationIdentyficator(), dto.getStationName());
             AirStation entity = mapper.dtoToEntity(dto);
-            airStationService.updateAirStation(entity,flag);
+            airStationService.updateAirStation(entity, flag);
         }
         return ResponseEntity.status(HttpStatus.OK)
                 .body(airStaions);
     }
 
     @GetMapping()
-    public ResponseEntity<?> getAllAirStation(){
+    public ResponseEntity<?> getAllAirStation() {
         List<AirStationDto> airStationDtos = airStationService.findAll().stream().map(mapper::entityToDto).collect(Collectors.toList());
         return ResponseEntity.ok().body(airStationDtos);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getAirStation(@PathVariable Long id){
+    public ResponseEntity<?> getAirStation(@PathVariable Long id) {
         Optional<AirStationDto> airStationDto = airStationService.findById(id).map(mapper::entityToDto);
         return ResponseUtil.wrapOrNotFound(airStationDto);
     }
 
+    @GetMapping("/{cityName}")
+    public ResponseEntity<?> getAirStationByCityName(@PathVariable String cityName) {
+        List<AirStationDto> airStationDtos = airStationService.findAirStationByCityName(cityName).stream().map(mapper::entityToDto).collect(Collectors.toList());
+
+        return ResponseEntity.ok()
+                .body(airStationDtos);
+    }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteAirStation(@PathVariable Long id){
+    public ResponseEntity<Void> deleteAirStation(@PathVariable Long id) {
         airStationService.delete(id);
         return ResponseEntity.noContent()
                 .headers(createEntityDeletionAlert(AirStation.class, id.toString()))

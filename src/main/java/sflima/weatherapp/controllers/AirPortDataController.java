@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
-import static sflima.weatherapp.utils.EntityAlertUtil.*;
+import static sflima.weatherapp.utils.EntityAlertUtil.createEntityDeletionAlert;
 
 @RestController
 @RequestMapping("/api/airport_data")
