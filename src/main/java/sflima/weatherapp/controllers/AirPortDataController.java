@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
-import static sflima.weatherapp.utils.EntityAlertUtil.*;
+import static sflima.weatherapp.utils.EntityAlertUtil.createEntityDeletionAlert;
 
 @RestController
 @RequestMapping("/api/airport_data")
@@ -40,27 +40,27 @@ public class AirPortDataController {
                 .body(mapper.entitiesToDtos(airPortDataService.getAirports()));
     }
 
-    @GetMapping("/getByIcao")
-    public ResponseEntity<List<AirPortDataDto>> getByIcao(String icao) {
+    @GetMapping("/getByIcao/{icao}")
+    public ResponseEntity<List<AirPortDataDto>> getByIcao(@PathVariable String icao) {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(mapper.entitiesToDtos(airPortDataService.getListOfAirPortDataByIcao(icao.toUpperCase(Locale.ROOT))));
     }
 
-    @GetMapping("/getByStationName")
-    public ResponseEntity<List<AirPortDataDto>> getByLocation(String name) {
+    @GetMapping("/getByStationName/{name}")
+    public ResponseEntity<List<AirPortDataDto>> getByLocation(@PathVariable String name) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(mapper.entitiesToDtos(airPortDataService.getListOfAirPortDataByStationName(name)));
     }
 
-    @GetMapping("/getByStationLocation")
-    public ResponseEntity<List<AirPortDataDto>> getByStationLocation(String location) {
+    @GetMapping("/getByStationLocation/{location}")
+    public ResponseEntity<List<AirPortDataDto>> getByStationLocation(@PathVariable String location) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(mapper.entitiesToDtos(airPortDataService.getListOfAirPortDataByLocation(location)));
     }
 
-    @GetMapping("/getByObservationDate")
-    public ResponseEntity<List<AirPortDataDto>> getByObservationDate(String date) {
+    @GetMapping("/getByObservationDate/{date}")
+    public ResponseEntity<List<AirPortDataDto>> getByObservationDate(@PathVariable String date) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body((mapper.entitiesToDtos(airPortDataService.getListOfAirPortDataByObserved(date))));
     }

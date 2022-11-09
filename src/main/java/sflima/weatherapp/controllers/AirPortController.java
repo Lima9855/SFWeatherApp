@@ -2,13 +2,16 @@ package sflima.weatherapp.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import sflima.weatherapp.dto.airportdata.AirPortDtoApi;
 import sflima.weatherapp.mapper.AirPortMapper;
 import sflima.weatherapp.model.airport.Airport;
 import sflima.weatherapp.services.airportservices.AirPortDataService;
-import sflima.weatherapp.services.apiservice.AirPortApiService;
 import sflima.weatherapp.services.airportservices.AirPortService;
+import sflima.weatherapp.services.apiservice.AirPortApiService;
 
 import java.util.Set;
 
@@ -30,22 +33,23 @@ public class AirPortController {
         this.airPortDataService = airPortDataService;
     }
 
-    @PostMapping ()
-    public ResponseEntity<?> createAirport (String uri){
+    @PostMapping()
+    public ResponseEntity<?> createAirport(String uri) {
         AirPortDtoApi airPortDtoApi = airPortApiService.getAirport(uri);
         Airport airport = airPortMapper.dtoToEntity(airPortDtoApi);
         airPortService.saveAirPort(airport);
         return ResponseEntity.status(HttpStatus.OK)
                 .body("airport created");
     }
+
     @PutMapping()
-    public ResponseEntity<?> updateAirports(){
+    public ResponseEntity<?> updateAirports() {
         Set<String> icaoCodes = airPortDataService.getSetOfIcaoCodes();
-        for(String icao: icaoCodes){
+        for (String icao : icaoCodes) {
             AirPortDtoApi airPortDtoApi = airPortApiService.getAirport(icao + "/decoded");
             Airport airport = airPortMapper.dtoToEntity(airPortDtoApi);
-            boolean flag = airPortDataService.existsAirPortDataByIcaoAndObserved(airport.getAirPortData().getIcao(),airport.getAirPortData().getObserved());
-            airPortService.updateAirPort(airport,flag);
+            boolean flag = airPortDataService.existsAirPortDataByIcaoAndObserved(airport.getAirPortData().getIcao(), airport.getAirPortData().getObserved());
+            airPortService.updateAirPort(airport, flag);
 
         }
         return ResponseEntity.status(HttpStatus.OK)

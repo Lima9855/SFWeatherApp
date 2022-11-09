@@ -14,7 +14,7 @@
     <name>wheatherapp</name>
     <description>wheatherapp</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -95,6 +95,13 @@
             <artifactId>springdoc-openapi-ui</artifactId>
             <version>1.6.9</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.zalando/problem -->
+        <dependency>
+            <groupId>org.zalando</groupId>
+            <artifactId>problem</artifactId>
+            <version>0.27.1</version>
+        </dependency>
+
         <!-- <dependency>
              <groupId>org.liquibase</groupId>
              <artifactId>liquibase-core</artifactId>

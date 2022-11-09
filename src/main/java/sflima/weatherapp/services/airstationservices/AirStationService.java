@@ -4,11 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import sflima.weatherapp.model.airstation.airstationall.AirStation;
-import sflima.weatherapp.model.airstation.airstationdata.indexairquality.AirQualityIndex;
 import sflima.weatherapp.repository.AirStationRepository;
 import sflima.weatherapp.services.airportservices.AirPortService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AirStationService {
@@ -27,15 +27,15 @@ public class AirStationService {
         return airStationRepository.saveAll(airStationList);
     }
 
-    public AirStation getAirStationAllByID(Long id) {
-        return airStationRepository.getById(id);
+    public Optional<AirStation> findById(Long id) {
+        return airStationRepository.findById(id);
     }
 
-    public List<AirStation> getAirStationAll() {
+    public List<AirStation> findAll() {
         return airStationRepository.findAll();
     }
 
-    public List<AirStation> getAirStationAllByCityName(String name) {
+    public List<AirStation> findAirStationByCityName(String name) {
         return airStationRepository.findByCity_Name(name);
     }
 
@@ -43,15 +43,13 @@ public class AirStationService {
         return airStationRepository.existsAirStationAllByAddressStreetAndStationIdentyficatorAndStationName(addressStreet, stationIdentyficator, stationName);
     }
 
-
-    public void updateAirStationAll(AirStation airStation, boolean flag) {
+    public void updateAirStation(AirStation airStation, boolean flag) {
         if (!flag) {
             airStationRepository.save(airStation);
         }
         // throw new app exception that will tell this
         else logger.info("There is already record in database for " + airStation.getStationName());
     }
-
 
     public void delete(Long id) {
         airStationRepository.deleteById(id);
