@@ -13,6 +13,6 @@ import jakarta.persistence.Embeddable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class No2IndexLevel {
-    private Integer no2_Id_Level;
-    private String no2_IndexLevelName;
+    private Integer no2IdLevel;
+    private String no2IndexLevelName;
 }

@@ -19,7 +19,7 @@ public class AirQualityIndex {
     @SequenceGenerator(name = "sequenceGenerator")
     @Column(name = "id")
     private Long id;
-    private Integer station_id;
+    private Integer stationId;
     private String stCalcDate;
     @Embedded
     private StIndexLevel stIndexLevel;

@@ -14,6 +14,6 @@ import jakarta.persistence.Embeddable;
 @NoArgsConstructor
 public class O3IndexLevel {
 
-    private Integer O3_Id_Level;
-    private String O3_IndexLevelName;
+    private Integer O3IdLevel;
+    private String O3IndexLevelName;
 }

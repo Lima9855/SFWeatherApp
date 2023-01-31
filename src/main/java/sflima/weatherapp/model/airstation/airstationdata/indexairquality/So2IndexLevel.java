@@ -14,6 +14,6 @@ import jakarta.persistence.Embeddable;
 @NoArgsConstructor
 public class So2IndexLevel {
 
-    private Integer so2_Id_Level;
-    private String so2_IndexLevelName;
+    private Integer so2IdLevel;
+    private String so2IndexLevelName;
 }

@@ -18,7 +18,7 @@ public class MeasurementStation {
     @SequenceGenerator(name = "sequenceGenerator")
     @Column(name = "id")
     private Long id;
-    private Integer measurement_data_id;
+    private Integer measurementDataId;
     private Integer stationId;
     @Embedded
     private Param param;

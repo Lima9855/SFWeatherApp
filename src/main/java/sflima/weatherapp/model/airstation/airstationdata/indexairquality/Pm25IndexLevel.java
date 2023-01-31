@@ -13,6 +13,6 @@ import jakarta.persistence.Embeddable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Pm25IndexLevel {
-    private Integer pm25_Id_Level;
-    private String pm25_IndexLevelName;
+    private Integer pm25IdLevel;
+    private String pm25IndexLevelName;
 }
