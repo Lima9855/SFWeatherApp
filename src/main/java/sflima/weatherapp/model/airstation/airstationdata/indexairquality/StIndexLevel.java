@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Embeddable;
+import jakarta.persistence.Embeddable;
 
 @Embeddable
 @Getter
@@ -14,6 +14,6 @@ import javax.persistence.Embeddable;
 @NoArgsConstructor
 public class StIndexLevel {
 
-    private Integer st_Id_Level;
-    private String st_IndexLevelName;
+    private Integer stIdLevel;
+    private String stIndexLevelName;
 }

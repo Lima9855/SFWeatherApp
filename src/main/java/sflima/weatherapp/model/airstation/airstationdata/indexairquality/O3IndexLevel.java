@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Embeddable;
+import jakarta.persistence.Embeddable;
 
 @Embeddable
 @Getter
@@ -14,6 +14,6 @@ import javax.persistence.Embeddable;
 @NoArgsConstructor
 public class O3IndexLevel {
 
-    private Integer O3_Id_Level;
-    private String O3_IndexLevelName;
+    private Integer O3IdLevel;
+    private String O3IndexLevelName;
 }

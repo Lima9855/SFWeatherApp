@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Embeddable;
+import jakarta.persistence.Embeddable;
 
 @Embeddable
 @Getter
@@ -13,6 +13,6 @@ import javax.persistence.Embeddable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Pm25IndexLevel {
-    private Integer pm25_Id_Level;
-    private String pm25_IndexLevelName;
+    private Integer pm25IdLevel;
+    private String pm25IndexLevelName;
 }

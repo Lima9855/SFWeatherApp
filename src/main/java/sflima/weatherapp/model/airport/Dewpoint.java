@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Embeddable;
+import jakarta.persistence.Embeddable;
 
 
 
@@ -20,9 +20,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Dewpoint {
 
-    @JsonProperty("celsius")
-    private Integer celsiusDewpoint;
-    @JsonProperty("fahrenheit")
-    private Integer fahrenheitDewpoint;
+    private Integer celsiusDewPoint;
+    private Integer fahrenheitDewPoint;
 
 }

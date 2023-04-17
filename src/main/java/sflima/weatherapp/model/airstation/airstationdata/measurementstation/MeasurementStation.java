@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Getter
@@ -18,7 +18,7 @@ public class MeasurementStation {
     @SequenceGenerator(name = "sequenceGenerator")
     @Column(name = "id")
     private Long id;
-    private Integer measurement_data_id;
+    private Integer measurementDataId;
     private Integer stationId;
     @Embedded
     private Param param;

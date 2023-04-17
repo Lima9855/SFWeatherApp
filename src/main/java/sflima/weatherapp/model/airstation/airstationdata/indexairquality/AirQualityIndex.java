@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Getter
@@ -19,7 +19,7 @@ public class AirQualityIndex {
     @SequenceGenerator(name = "sequenceGenerator")
     @Column(name = "id")
     private Long id;
-    private Integer station_id;
+    private Integer stationId;
     private String stCalcDate;
     @Embedded
     private StIndexLevel stIndexLevel;

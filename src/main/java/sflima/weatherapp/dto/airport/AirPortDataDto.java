@@ -22,16 +22,4 @@ public class AirPortDataDto implements Serializable {
     private final VisibilityDto visibility;
     private final WindDto wind;
 
-    @AllArgsConstructor
-    @Getter
-    public static class HumidityDto implements Serializable {
-        private final Integer percent;
-    }
-
-    @AllArgsConstructor
-    @Getter
-    public static class TemperatureDto implements Serializable {
-        private final Integer celsiusTemperature;
-        private final Integer fahrenheitTemperature;
-    }
 }
