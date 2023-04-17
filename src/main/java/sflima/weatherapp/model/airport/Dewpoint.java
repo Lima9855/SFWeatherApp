@@ -20,9 +20,7 @@ import jakarta.persistence.Embeddable;
 @Embeddable
 public class Dewpoint {
 
-    @JsonProperty("celsius")
-    private Integer celsiusDewpoint;
-    @JsonProperty("fahrenheit")
-    private Integer fahrenheitDewpoint;
+    private Integer celsiusDewPoint;
+    private Integer fahrenheitDewPoint;
 
 }

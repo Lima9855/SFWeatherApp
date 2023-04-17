@@ -1,4 +1,4 @@
-package sflima.weatherapp.config.security;
+package sflima.weatherapp.config.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,15 +14,16 @@ import sflima.weatherapp.repository.UserRepository;
 
 @Configuration
 public class AppConfig {
-    private final UserRepository repository;
 
-    public AppConfig(UserRepository repository) {
-        this.repository = repository;
+    private final UserRepository userRepository;
+
+    public AppConfig(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return username -> repository.findByEmail(username)
+        return username -> userRepository.findByEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
@@ -43,4 +44,5 @@ public class AppConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
 }

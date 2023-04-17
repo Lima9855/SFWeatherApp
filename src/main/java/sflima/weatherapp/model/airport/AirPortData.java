@@ -1,12 +1,11 @@
 
 package sflima.weatherapp.model.airport;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import jakarta.persistence.*;
 
 @Entity
 @Getter
@@ -15,7 +14,7 @@ import jakarta.persistence.*;
 @NoArgsConstructor
 
 @Table(name = "Data")
-public class AirPortData{
+public class AirPortData {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
     @SequenceGenerator(name = "sequenceGenerator")
@@ -52,7 +51,7 @@ public class AirPortData{
     public String toString() {
         return "Datum{" +
                 ", barometer=" + barometer +
-                ", clouds= "  +
+                ", clouds= " +
                 ", dewpoint=" + dewpoint +
                 ", elevation=" + elevation +
                 ", flightCategory='" + flightCategory + '\'' +
